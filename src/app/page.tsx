@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CodeXml, Cloud, BrainCircuit, TrendingUp, Scaling, Smartphone, Rocket, Search } from 'lucide-react';
 import AIPoweredInsights from '@/components/sections/ai-powered-insights';
+import ProcessTimeline from '@/components/sections/process-timeline';
 import { cn } from '@/lib/utils';
 
 interface SectionProps {
@@ -160,6 +161,8 @@ export default function Home() {
             </div>
           </div>
         </Section>
+
+        <ProcessTimeline />
 
         <Section id="clients" className="bg-background">
             <h2 className="text-center text-xl font-semibold text-muted-foreground tracking-wider">Trusted by innovative companies worldwide</h2>

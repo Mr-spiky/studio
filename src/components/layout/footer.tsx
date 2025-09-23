@@ -4,6 +4,7 @@ import { Code } from 'lucide-react';
 const quickLinks = [
   { name: 'About', href: '#why-choose-us' },
   { name: 'Services', href: '#services' },
+  { name: 'Our Process', href: '#process' },
   { name: 'Portfolio', href: '#contact' },
   { name: 'Blog', href: '#blog' },
   { name: 'Contact', href: '#contact' },
