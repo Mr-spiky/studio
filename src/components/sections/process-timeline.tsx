@@ -2,7 +2,7 @@
 import { FC } from 'react';
 import { Search, FileText, Code, Rocket, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 
 const Section: FC<{ id: string; className?: string; children: React.ReactNode }> = ({ id, className, children }) => (
   <section id={id} className={cn('py-12 md:py-20', className)}>
@@ -72,7 +72,7 @@ export default function ProcessTimeline() {
                   </div>
               </div>
 
-              <Card className="w-full bg-card shadow-sm border pt-16 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-accent/40 flex flex-col">
+              <Card className="w-full bg-card shadow-sm border pt-16 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-accent/40 flex flex-col border-t-4 border-t-accent">
                 <CardContent className="flex-grow">
                   <h3 className="text-xl font-bold text-primary mb-2">{step.title}</h3>
                   <p className="text-sm text-muted-foreground">{step.description}</p>
