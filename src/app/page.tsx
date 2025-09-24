@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CodeXml, Cloud, BrainCircuit, TrendingUp, Scaling, Smartphone, Rocket, Search } from 'lucide-react';
 import AIPoweredInsights from '@/components/sections/ai-powered-insights';
 import ProcessTimeline from '@/components/sections/process-timeline';
+import ClientCarousel from '@/components/sections/client-carousel';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 
@@ -171,21 +172,7 @@ export default function Home() {
 
         <ProcessTimeline />
         
-        <Section id="awards" className="bg-background">
-          <div className="text-center">
-            <h3 className="text-lg font-medium text-muted-foreground">Trusted by innovative companies worldwide</h3>
-          </div>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-16 gap-y-8">
-            {awardLogos.map((award, index) => (
-              <img
-                key={index}
-                src={award.src}
-                alt={award.alt}
-                className="h-[50px] object-contain transition-opacity hover:opacity-80"
-              />
-            ))}
-          </div>
-        </Section>
+        <ClientCarousel />
 
         <Section id="blog" className="bg-primary/5">
           <div className="text-center">
