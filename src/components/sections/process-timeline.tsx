@@ -1,15 +1,9 @@
 import { FC } from 'react';
-import { Search, FileText, Code, Rocket, LifeBuoy } from 'lucide-react';
+import { Search, FileText, Code, Rocket, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 
-interface SectionProps {
-  id: string;
-  className?: string;
-  children: React.ReactNode;
-}
-
-const Section: FC<SectionProps> = ({ id, className, children }) => (
+const Section: FC<{ id: string; className?: string; children: React.ReactNode }> = ({ id, className, children }) => (
   <section id={id} className={cn('py-12 md:py-20', className)}>
     <div className="container mx-auto px-4 md:px-6">{children}</div>
   </section>
@@ -37,7 +31,7 @@ const processSteps = [
     description: 'After rigorous testing, we deploy your project to the world.',
   },
   {
-    icon: LifeBuoy,
+    icon: Zap,
     title: 'Support',
     description: 'We provide ongoing maintenance and support to ensure optimal performance.',
   },
@@ -45,7 +39,7 @@ const processSteps = [
 
 export default function ProcessTimeline() {
   return (
-    <Section id="process" className="bg-background">
+    <Section id="process" className="bg-primary/5">
       <div className="text-center">
         <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">
           Our Process
@@ -54,18 +48,32 @@ export default function ProcessTimeline() {
           A streamlined approach to delivering exceptional results, every time.
         </p>
       </div>
-      <div className="relative mt-16">
-        <div className="absolute left-1/2 top-8 hidden h-full w-px -translate-x-1/2 bg-border md:block" />
-        <div className="absolute top-8 hidden h-px w-full bg-border md:hidden" />
-        <div className="grid gap-12 md:grid-cols-5">
+      <div className="relative mt-20">
+        <div 
+          className="absolute left-0 right-0 top-1/2 hidden h-0.5 -translate-y-1/2 bg-gradient-to-r from-transparent via-accent to-transparent md:block" 
+          style={{ top: 'calc(1.5rem - 1px)' }}
+        />
+        <div className="grid gap-10 md:grid-cols-5 md:gap-6">
           {processSteps.map((step, index) => (
-            <div key={step.title} className="relative flex flex-col items-center text-center">
-              <div className="absolute -top-3 left-1/2 hidden h-6 w-6 -translate-x-1/2 rounded-full border-2 border-background bg-accent md:block"></div>
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary ring-8 ring-background">
-                <step.icon className="h-8 w-8" />
-              </div>
-              <h3 className="mt-6 text-xl font-bold text-primary">{step.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
+            <div key={step.title} className="relative group">
+              <Card 
+                className="text-center transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl bg-white/60 backdrop-blur-sm border-white/30"
+              >
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-sky-500 rounded-t-lg" />
+                <div className="p-6">
+                  <div className="relative mb-4 inline-block">
+                    <div className="absolute -inset-2.5 rounded-full bg-gradient-to-r from-teal-400 to-sky-500 opacity-20 blur-lg transition-opacity duration-300 group-hover:opacity-40" />
+                    <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-md">
+                      <step.icon className="h-8 w-8 text-accent" />
+                    </div>
+                    <div className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 flex h-7 w-7 items-center justify-center rounded-full bg-accent text-white font-bold text-sm shadow-md">
+                      {index + 1}
+                    </div>
+                  </div>
+                  <h3 className="mt-2 text-xl font-bold text-primary">{step.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
+                </div>
+              </Card>
             </div>
           ))}
         </div>
