@@ -1,9 +1,8 @@
+
 'use client';
 
 import type { FC } from 'react';
 import { useState, ComponentType, SVGProps } from 'react';
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CodeXml, Cloud, BrainCircuit, TrendingUp, Scaling, Smartphone, Rocket, Search } from 'lucide-react';

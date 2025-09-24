@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 
 // This is a placeholder for fetching blog post data
