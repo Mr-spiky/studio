@@ -19,44 +19,44 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-primary-foreground/20 bg-primary/95 text-primary-foreground backdrop-blur supports-[backdrop-filter]:bg-primary/60">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2" prefetch={false}>
-          <Code className="h-7 w-7 text-primary" />
-          <span className="text-lg font-bold text-primary font-headline">GIT Technologies</span>
+          <Code className="h-7 w-7 text-primary-foreground" />
+          <span className="text-lg font-bold text-primary-foreground font-headline">GIT Technologies</span>
         </Link>
         <nav className="hidden md:flex md:items-center md:gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium text-primary-foreground/80 transition-colors hover:text-primary-foreground"
             >
               {link.name}
             </Link>
           ))}
         </nav>
         <div className="hidden md:block">
-          <Button asChild>
+          <Button variant="outline" className="text-primary-foreground border-primary-foreground/50 hover:bg-primary-foreground/10" asChild>
             <a href="#services">Get a Quote</a>
           </Button>
         </div>
         <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="hover:bg-primary-foreground/10">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
+            <SheetContent side="right" className="bg-primary text-primary-foreground">
               <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between border-b pb-4">
+                <div className="flex items-center justify-between border-b border-primary-foreground/20 pb-4">
                    <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
-                      <Code className="h-6 w-6 text-primary" />
-                      <span className="font-bold text-primary">GIT Technologies</span>
+                      <Code className="h-6 w-6 text-primary-foreground" />
+                      <span className="font-bold text-primary-foreground">GIT Technologies</span>
                     </Link>
-                    <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
+                    <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="hover:bg-primary-foreground/10">
                         <X className="h-6 w-6" />
                         <span className="sr-only">Close menu</span>
                     </Button>
@@ -67,14 +67,14 @@ export default function Header() {
                       key={link.name}
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className="text-lg font-medium text-muted-foreground transition-colors hover:text-foreground"
+                      className="text-lg font-medium text-primary-foreground/80 transition-colors hover:text-primary-foreground"
                     >
                       {link.name}
                     </Link>
                   ))}
                 </nav>
                 <div className="mt-auto">
-                    <Button className="w-full" asChild>
+                    <Button className="w-full" variant="outline" asChild>
                         <a href="#services" onClick={() => setIsOpen(false)}>Get a Quote</a>
                     </Button>
                 </div>
