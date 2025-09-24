@@ -12,6 +12,7 @@ import ProcessTimeline from '@/components/sections/process-timeline';
 import ClientCarousel from '@/components/sections/client-carousel';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface SectionProps {
   id: string;
@@ -57,9 +58,9 @@ const stats = [
 ];
 
 const blogPosts = [
-    { title: 'The Future of Web Development in 2025', description: 'Exploring emerging trends and technologies shaping web development' },
-    { title: 'AI Integration Best Practices', description: 'How to successfully implement AI solutions in your business' },
-    { title: 'Cloud Security Essentials', description: 'Protecting your data in cloud environments' },
+    { id: '1', title: 'The Future of Web Development in 2025', description: 'Exploring emerging trends and technologies shaping web development' },
+    { id: '2', title: 'AI Integration Best Practices', description: 'How to successfully implement AI solutions in your business' },
+    { id: '3', title: 'Cloud Security Essentials', description: 'Protecting your data in cloud environments' },
 ];
 
 const awardLogos = [
@@ -82,9 +83,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-dvh flex-col bg-background">
-      <Header />
-      <main className="flex-1">
+    <>
         <Section id="home" className="!pt-0">
           <div className="relative overflow-hidden rounded-b-3xl bg-primary/10">
             <div className="container mx-auto px-4 md:px-6 py-24 text-center">
@@ -96,10 +95,10 @@ export default function Home() {
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <Button size="lg" asChild>
-                  <a href="#services">Get Started</a>
+                  <Link href="/services">Get Started</Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <a href="#contact">View Portfolio</a>
+                  <Link href="/solutions">View Portfolio</Link>
                 </Button>
               </div>
             </div>
@@ -191,17 +190,14 @@ export default function Home() {
                   <p className="text-muted-foreground">{post.description}</p>
                 </CardContent>
                 <div className="border-t p-6">
-                    <a href="#" className="font-semibold text-accent transition-colors hover:text-accent/80">
+                    <Link href={`/blogs/${post.id}`} className="font-semibold text-accent transition-colors hover:text-accent/80">
                         Read More &rarr;
-                    </a>
+                    </Link>
                 </div>
               </Card>
             ))}
           </div>
         </Section>
-        
-      </main>
-      <Footer />
-    </div>
+    </>
   );
 }

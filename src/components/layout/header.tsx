@@ -7,12 +7,12 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'Services', href: '#services' },
-  { name: 'Solution', href: '#process' },
-  { name: 'About Us', href: '#why-choose-us' },
-  { name: 'Hire Developers', href: '#contact' },
-  { name: 'Blogs', href: '#blog' },
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: 'Solution', href: '/solutions' },
+  { name: 'About Us', href: '/about-us' },
+  { name: 'Hire Developers', href: '/hire-developers' },
+  { name: 'Blogs', href: '/blogs' },
 ];
 
 export default function Header() {
@@ -38,7 +38,7 @@ export default function Header() {
         </nav>
         <div className="hidden md:block">
           <Button variant="outline" className="text-foreground border-border hover:bg-background/80 hover:text-foreground bg-background" asChild>
-            <a href="#services">Get a Quote</a>
+            <Link href="/contact">Get a Quote</Link>
           </Button>
         </div>
         <div className="md:hidden">
@@ -75,7 +75,7 @@ export default function Header() {
                 </nav>
                 <div className="mt-auto">
                     <Button className="w-full bg-background text-foreground hover:bg-background/80" variant="outline" asChild>
-                        <a href="#services" onClick={() => setIsOpen(false)}>Get a Quote</a>
+                        <Link href="/contact" onClick={() => setIsOpen(false)}>Get a Quote</Link>
                     </Button>
                 </div>
               </div>

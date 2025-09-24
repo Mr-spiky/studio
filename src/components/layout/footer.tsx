@@ -2,12 +2,12 @@ import Link from 'next/link';
 import { Code } from 'lucide-react';
 
 const quickLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'Services', href: '#services' },
-  { name: 'Solution', href: '#process' },
-  { name: 'About Us', href: '#why-choose-us' },
-  { name: 'Hire Developers', href: '#contact' },
-  { name: 'Blogs', href: '#blog' },
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: 'Solution', href: '/solutions' },
+  { name: 'About Us', href: '/about-us' },
+  { name: 'Hire Developers', href: '/hire-developers' },
+  { name: 'Blogs', href: '/blogs' },
 ];
 
 export default function Footer() {
