@@ -61,7 +61,7 @@ export default function ProcessTimeline() {
                 <div className="md:hidden absolute top-12 left-1/2 w-0.5 h-full -translate-x-1/2 bg-accent/20" />
               )}
               
-              <Card className="w-full bg-card shadow-sm border border-transparent transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-accent/40">
+              <Card className="w-full bg-card shadow-sm border border-transparent transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-accent/40 flex flex-col">
                 <CardHeader className="items-center">
                     <div className="relative z-10">
                         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-background shadow-lg border-4 border-accent/20">
@@ -74,7 +74,7 @@ export default function ProcessTimeline() {
                         </div>
                     </div>
                 </CardHeader>
-                <CardContent className="pt-2">
+                <CardContent className="pt-2 flex-grow">
                   <h3 className="text-xl font-bold text-primary mb-2">{step.title}</h3>
                   <p className="text-sm text-muted-foreground">{step.description}</p>
                 </CardContent>
