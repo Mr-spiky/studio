@@ -3,22 +3,22 @@
 'use client';
 
 import { FC } from 'react';
-import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
-const clientLogos = [
-  'TechCorp',
-  'Innovate Inc.',
-  'Quantum Solutions',
-  'Nexus Enterprises',
-  'Apex Industries',
-  'DigitalFlow',
-  'FutureTech',
-  'CloudSphere',
+const awardLogos = [
+    { src: 'https://www.g1technologies.online/_next/static/media/award-clutch.4f0bbe8c.svg', alt: 'Clutch Award' },
+    { src: 'https://www.g1technologies.online/_next/static/media/award-upwork.d4acf392.svg', alt: 'Upwork Top Rated' },
+    { src: 'https://www.g1technologies.online/_next/static/media/award-softwareworld.fc2ecdd8.svg', alt: 'SoftwareWorld Award' },
+    { src: 'https://www.g1technologies.online/_next/static/media/award-appdevelopment.952afba3.svg', alt: 'AppDevelopment Award' },
+    // Repeat for a seamless loop
+    { src: 'https://www.g1technologies.online/_next/static/media/award-clutch.4f0bbe8c.svg', alt: 'Clutch Award' },
+    { src: 'https://www.g1technologies.online/_next/static/media/award-upwork.d4acf392.svg', alt: 'Upwork Top Rated' },
+    { src: 'https://www.g1technologies.online/_next/static/media/award-softwareworld.fc2ecdd8.svg', alt: 'SoftwareWorld Award' },
+    { src: 'https://www.g1technologies.online/_next/static/media/award-appdevelopment.952afba3.svg', alt: 'AppDevelopment Award' },
 ];
 
-const ClientCarousel: FC = () => {
-  const extendedLogos = [...clientLogos, ...clientLogos];
 
+const ClientCarousel: FC = () => {
   return (
     <section
       id="clients"
@@ -28,7 +28,7 @@ const ClientCarousel: FC = () => {
         <div className="relative rounded-2xl border border-transparent bg-white/10 p-8 shadow-2xl backdrop-blur-xl [border-image:linear-gradient(45deg,theme(colors.accent.DEFAULT),#764ba2)_1]">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline animate-float">
-              Trusted by innovative companies worldwide
+              Awards & Recognition
             </h2>
           </div>
           <div
@@ -40,13 +40,19 @@ const ClientCarousel: FC = () => {
               } as React.CSSProperties
             }
           >
-            <div className="animate-scroll flex w-max gap-x-16">
-              {extendedLogos.map((logo, index) => (
+            <div className="animate-scroll flex w-max gap-x-24">
+              {awardLogos.map((logo, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 text-2xl font-semibold text-foreground/70 transition-all duration-300 hover:text-foreground hover:scale-110 hover:drop-shadow-[0_0_10px_hsl(var(--accent)/0.5)]"
+                  className="flex-shrink-0 transition-all duration-300 hover:scale-110 hover:opacity-100 opacity-80"
                 >
-                  {logo}
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    height={50}
+                    width={150}
+                    className="object-contain"
+                  />
                 </div>
               ))}
             </div>
@@ -78,7 +84,7 @@ const ClientCarousel: FC = () => {
           }
         }
         .animate-scroll {
-          animation: scroll 30s linear infinite;
+          animation: scroll 20s linear infinite;
         }
         .group:hover .animate-scroll {
           animation-play-state: paused;
