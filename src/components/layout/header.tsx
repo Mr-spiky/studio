@@ -37,9 +37,9 @@ export default function Header() {
           ))}
         </nav>
         <div className="hidden md:block">
-          <Link href="/contact">
-            <Button variant="outline" className="text-foreground border-border hover:bg-background/80 hover:text-foreground bg-background">
-              Contact Us
+          <Link href="/contact" passHref>
+            <Button variant="outline" className="text-foreground border-border hover:bg-background/80 hover:text-foreground bg-background" asChild>
+              <a>Contact Us</a>
             </Button>
           </Link>
         </div>
