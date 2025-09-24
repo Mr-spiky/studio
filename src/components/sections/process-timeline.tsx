@@ -49,7 +49,7 @@ export default function ProcessTimeline() {
         </p>
       </div>
       <div className="relative mt-20">
-        <div className="absolute left-0 right-0 top-8 h-0.5 bg-gray-200 md:left-1/2 md:top-1/2 md:h-auto md:w-0.5 md:-translate-y-1/2" />
+        <div className="absolute left-1/2 top-8 hidden h-0.5 w-full -translate-x-1/2 bg-gray-200 md:block" />
         <div className="grid gap-16 md:grid-cols-5 md:gap-6">
           {processSteps.map((step, index) => (
             <div key={step.title} className="relative group flex flex-col items-center">
@@ -68,11 +68,6 @@ export default function ProcessTimeline() {
                 <div className="p-6 pt-10">
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-md z-10">
                     <step.icon className="h-8 w-8 text-accent" />
-                     <div className="absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white font-bold text-sm shadow-md z-20"
-                        style={{ background: '#667eea' }}
-                     >
-                        {index + 1}
-                    </div>
                   </div>
                   <h3 className="text-xl font-bold mt-2" style={{color: '#2d3748'}}>{step.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
