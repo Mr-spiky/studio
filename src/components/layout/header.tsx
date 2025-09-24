@@ -37,9 +37,11 @@ export default function Header() {
           ))}
         </nav>
         <div className="hidden md:block">
-          <Button variant="outline" className="text-foreground border-border hover:bg-background/80 hover:text-foreground bg-background" asChild>
-            <Link href="/contact">Contact Us</Link>
-          </Button>
+          <Link href="/contact">
+            <Button variant="outline" className="text-foreground border-border hover:bg-background/80 hover:text-foreground bg-background">
+              Contact Us
+            </Button>
+          </Link>
         </div>
         <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
