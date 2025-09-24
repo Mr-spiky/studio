@@ -22,7 +22,7 @@ const ClientCarousel: FC = () => {
   return (
     <section
       id="clients"
-      className="relative py-12 md:py-16 overflow-hidden bg-background"
+      className="relative py-8 md:py-12 overflow-hidden bg-background"
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="relative rounded-2xl border border-transparent bg-white/10 p-8 shadow-2xl backdrop-blur-xl [border-image:linear-gradient(45deg,theme(colors.accent.DEFAULT),#764ba2)_1]">
@@ -49,7 +49,7 @@ const ClientCarousel: FC = () => {
                   <Image
                     src={logo.src}
                     alt={logo.alt}
-                    height={50}
+                    height={40}
                     width={150}
                     className="object-contain"
                   />
