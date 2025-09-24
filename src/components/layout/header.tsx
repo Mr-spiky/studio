@@ -19,7 +19,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-primary-foreground/20 bg-primary/95 text-primary-foreground backdrop-blur supports-[backdrop-filter]:bg-primary/60">
+    <header className="sticky top-0 z-50 w-full border-b border-primary-foreground/20 bg-primary text-primary-foreground backdrop-blur supports-[backdrop-filter]:bg-primary/60">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2" prefetch={false}>
           <Code className="h-7 w-7 text-primary-foreground" />
@@ -37,7 +37,7 @@ export default function Header() {
           ))}
         </nav>
         <div className="hidden md:block">
-          <Button variant="outline" className="text-primary-foreground border-primary-foreground/50 hover:bg-primary-foreground/10" asChild>
+          <Button variant="outline" className="text-foreground border-border hover:bg-background/80 hover:text-foreground bg-background" asChild>
             <a href="#services">Get a Quote</a>
           </Button>
         </div>
@@ -74,7 +74,7 @@ export default function Header() {
                   ))}
                 </nav>
                 <div className="mt-auto">
-                    <Button className="w-full" variant="outline" asChild>
+                    <Button className="w-full bg-background text-foreground hover:bg-background/80" variant="outline" asChild>
                         <a href="#services" onClick={() => setIsOpen(false)}>Get a Quote</a>
                     </Button>
                 </div>
