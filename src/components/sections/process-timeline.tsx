@@ -2,7 +2,7 @@
 import { FC } from 'react';
 import { Search, FileText, Code, Rocket, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
 const Section: FC<{ id: string; className?: string; children: React.ReactNode }> = ({ id, className, children }) => (
   <section id={id} className={cn('py-12 md:py-20', className)}>
@@ -51,29 +51,30 @@ export default function ProcessTimeline() {
       </div>
       <div className="relative mt-16 md:mt-24">
         {/* Desktop Connector Line */}
-        <div className="hidden md:block absolute top-8 left-0 w-full h-0.5 bg-accent/20" />
+        <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-accent/20" />
         
         <div className="grid gap-16 md:grid-cols-5 md:gap-8">
           {processSteps.map((step, index) => (
             <div key={step.title} className="relative flex flex-col items-center text-center">
               {/* Mobile Connector Line */}
               {index < processSteps.length - 1 && (
-                <div className="md:hidden absolute top-8 left-1/2 w-0.5 h-full -translate-x-1/2 bg-accent/20" />
+                <div className="md:hidden absolute top-12 left-1/2 w-0.5 h-full -translate-x-1/2 bg-accent/20" />
               )}
               
-              <div className="relative z-10">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-background shadow-lg">
-                    <step.icon className="h-8 w-8 text-accent" />
-                </div>
-                <div 
-                    className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-accent text-accent-foreground font-bold text-xs"
-                >
-                    {index + 1}
-                </div>
-              </div>
-
-              <Card className="w-full bg-card shadow-sm mt-8 border border-accent/20">
-                <CardContent className="pt-6">
+              <Card className="w-full bg-card shadow-sm border border-accent/20 overflow-visible">
+                <CardHeader className="items-center relative -mt-8">
+                    <div className="relative z-10">
+                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-background shadow-lg border-4 border-accent/20">
+                            <step.icon className="h-8 w-8 text-accent" />
+                        </div>
+                        <div 
+                            className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-accent text-accent-foreground font-bold text-xs"
+                        >
+                            {index + 1}
+                        </div>
+                    </div>
+                </CardHeader>
+                <CardContent className="pt-2">
                   <h3 className="text-xl font-bold text-primary mb-2">{step.title}</h3>
                   <p className="text-sm text-muted-foreground">{step.description}</p>
                 </CardContent>
