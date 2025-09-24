@@ -39,7 +39,7 @@ export default function Header() {
         <div className="hidden md:block">
           <Link href="/contact" passHref>
             <Button variant="outline" className="text-foreground border-border hover:bg-background/80 hover:text-foreground bg-background" asChild>
-              <a>Contact Us</a>
+              Contact Us
             </Button>
           </Link>
         </div>
