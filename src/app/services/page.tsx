@@ -212,29 +212,6 @@ export default function ServicesPage() {
           </div>
       </section>
 
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">Success Stories</h2>
-                <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-                    See how we've helped businesses like yours succeed.
-                </p>
-            </div>
-            <div className="grid gap-12 md:grid-cols-2">
-                {caseStudies.map(study => (
-                    <Card key={study.client} className="overflow-hidden">
-                        <Image src={study.image} alt={study.title} width={600} height={400} className="w-full h-60 object-cover" />
-                        <div className="p-6">
-                            <h3 className="text-xl font-bold text-primary mb-2">{study.title}</h3>
-                            <p className="text-sm text-accent font-semibold mb-4">{study.client}</p>
-                            <p className="text-muted-foreground">{study.description}</p>
-                        </div>
-                    </Card>
-                ))}
-            </div>
-        </div>
-      </section>
-
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4 max-w-4xl">
             <div className="text-center mb-16">
@@ -255,4 +232,3 @@ export default function ServicesPage() {
     </div>
   );
 }
-
