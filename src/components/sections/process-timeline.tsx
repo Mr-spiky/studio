@@ -49,28 +49,31 @@ export default function ProcessTimeline() {
         </p>
       </div>
       <div className="relative mt-20">
-        <div 
-          className="absolute left-0 right-0 top-1/2 hidden h-0.5 -translate-y-1/2 bg-gradient-to-r from-transparent via-accent to-transparent md:block" 
-          style={{ top: 'calc(1.5rem - 1px)' }}
+        {/* Desktop connector */}
+        <div
+          className="absolute left-0 right-0 top-8 hidden h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent md:block"
         />
-        <div className="grid gap-10 md:grid-cols-5 md:gap-6">
+        {/* Mobile connector */}
+        <div
+          className="absolute bottom-0 left-8 top-0 w-0.5 bg-gradient-to-b from-transparent via-accent to-transparent md:hidden"
+        />
+        <div className="grid gap-16 md:grid-cols-5 md:gap-6">
           {processSteps.map((step, index) => (
-            <div key={step.title} className="relative group">
-              <Card 
-                className="text-center transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl bg-white/60 backdrop-blur-sm border-white/30"
-              >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-sky-500 rounded-t-lg" />
-                <div className="p-6">
-                  <div className="relative mb-4 inline-block">
-                    <div className="absolute -inset-2.5 rounded-full bg-gradient-to-r from-teal-400 to-sky-500 opacity-20 blur-lg transition-opacity duration-300 group-hover:opacity-40" />
-                    <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-md">
-                      <step.icon className="h-8 w-8 text-accent" />
-                    </div>
-                    <div className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 flex h-7 w-7 items-center justify-center rounded-full bg-accent text-white font-bold text-sm shadow-md">
-                      {index + 1}
-                    </div>
+            <div key={step.title} className="relative group flex items-start md:flex-col md:items-center">
+               <div className="relative flex-shrink-0">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-md z-10 relative">
+                    <step.icon className="h-8 w-8 text-accent" />
                   </div>
-                  <h3 className="mt-2 text-xl font-bold text-primary">{step.title}</h3>
+                  <div className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white font-bold text-sm shadow-md z-20">
+                    {index + 1}
+                  </div>
+                </div>
+              <Card
+                className="text-center transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl bg-white/60 backdrop-blur-sm border-white/30 md:mt-8 ml-8 md:ml-0"
+              >
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-sky-500 rounded-t-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-primary">{step.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
                 </div>
               </Card>
