@@ -171,8 +171,11 @@ export default function Home() {
 
         <ProcessTimeline />
         
-        <Section id="awards" className="bg-background !py-0">
-          <div className="flex flex-col items-center justify-center gap-8 md:flex-row md:gap-16">
+        <Section id="awards" className="bg-background">
+          <div className="text-center">
+            <h3 className="text-lg font-medium text-muted-foreground">Trusted by innovative companies worldwide</h3>
+          </div>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-16 gap-y-8">
             {awardLogos.map((award, index) => (
               <img
                 key={index}
