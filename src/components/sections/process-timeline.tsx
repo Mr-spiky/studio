@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Search, FileText, Code, Rocket, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 
 const Section: FC<{ id: string; className?: string; children: React.ReactNode }> = ({ id, className, children }) => (
   <section id={id} className={cn('py-12 md:py-20', className)}>
@@ -48,23 +48,33 @@ export default function ProcessTimeline() {
           A streamlined approach to delivering exceptional results, every time.
         </p>
       </div>
-      <div className="relative mt-20">
-        <div 
-          className="absolute left-1/2 top-8 h-0.5 -translate-x-1/2 bg-blue-200 hidden md:block"
-          style={{ width: 'calc(100% - 10rem)'}}
-        />
+      <div className="relative mt-24">
+        {/* Desktop Connector Line */}
+        <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 -translate-y-1/2" style={{ top: '3rem', background: 'hsl(var(--accent) / 0.2)' }} />
+        
         <div className="grid gap-16 md:grid-cols-5 md:gap-6 relative">
           {processSteps.map((step, index) => (
             <div key={step.title} className="relative flex flex-col items-center text-center group">
-              <Card className="w-full border-t-4 border-accent bg-card shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5" style={{ background: 'rgba(255, 255, 255, 0.7)', backdropFilter: 'blur(10px)' }}>
-                <CardHeader className="items-center">
-                    <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-lg bg-accent/10 text-accent shadow-md transition-all duration-300 group-hover:shadow-accent/40 group-hover:bg-accent group-hover:text-white">
-                        <step.icon className="h-8 w-8" />
-                    </div>
-                  <h3 className="text-xl font-bold text-gray-800">{step.title}</h3>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-600">{step.description}</p>
+              {/* Mobile Connector Line */}
+              {index < processSteps.length - 1 && (
+                <div className="md:hidden absolute top-0 left-1/2 w-0.5 h-full -translate-x-1/2" style={{ top: '3rem', background: 'hsl(var(--accent) / 0.2)', zIndex: 0 }} />
+              )}
+              
+              <div className="relative z-10 mb-[-2.5rem]">
+                  <div className="relative flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-md">
+                      <step.icon className="h-10 w-10 text-accent" />
+                      <div 
+                          className="absolute -top-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full bg-accent text-white font-bold text-sm shadow-md"
+                      >
+                          {index + 1}
+                      </div>
+                  </div>
+              </div>
+
+              <Card className="w-full border-t-4 border-accent bg-card shadow-sm pt-12 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <CardContent className="pt-6">
+                  <h3 className="text-xl font-bold text-primary mb-2">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground">{step.description}</p>
                 </CardContent>
               </Card>
             </div>
