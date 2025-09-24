@@ -50,28 +50,21 @@ export default function ProcessTimeline() {
       </div>
       <div className="relative mt-20">
         <div 
-          className="absolute left-0 right-0 top-8 h-0.5 bg-blue-100 hidden md:block"
-          style={{ width: 'calc(100% - 8rem)', margin: '0 auto' }}
+          className="absolute left-1/2 top-8 h-0.5 -translate-x-1/2 bg-blue-200 hidden md:block"
+          style={{ width: 'calc(100% - 10rem)'}}
         />
-        <div className="grid gap-10 md:grid-cols-5 md:gap-6">
+        <div className="grid gap-16 md:grid-cols-5 md:gap-6 relative">
           {processSteps.map((step, index) => (
-            <div key={step.title} className="relative flex flex-col items-center text-center">
-              <div className="absolute -top-12 w-full flex justify-center">
-                <div className="relative">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-md z-10">
-                    <step.icon className="h-8 w-8 text-accent" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-teal-500 text-white font-bold text-xs shadow-md z-20">
-                    {index + 1}
-                  </div>
-                </div>
-              </div>
-              <Card className="relative w-full pt-12 border-t-4 border-accent bg-card shadow-md">
-                <CardHeader>
-                  <h3 className="text-xl font-bold text-primary">{step.title}</h3>
+            <div key={step.title} className="relative flex flex-col items-center text-center group">
+              <Card className="w-full border-t-4 border-accent bg-card shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5" style={{ background: 'rgba(255, 255, 255, 0.7)', backdropFilter: 'blur(10px)' }}>
+                <CardHeader className="items-center">
+                    <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-lg bg-accent/10 text-accent shadow-md transition-all duration-300 group-hover:shadow-accent/40 group-hover:bg-accent group-hover:text-white">
+                        <step.icon className="h-8 w-8" />
+                    </div>
+                  <h3 className="text-xl font-bold text-gray-800">{step.title}</h3>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">{step.description}</p>
+                  <p className="text-sm text-gray-600">{step.description}</p>
                 </CardContent>
               </Card>
             </div>
