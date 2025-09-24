@@ -50,19 +50,19 @@ export default function ProcessTimeline() {
       </div>
       <div className="relative mt-24">
         {/* Desktop Connector Line */}
-        <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 -translate-y-1/2" style={{ top: '3rem', background: 'hsl(var(--accent) / 0.2)' }} />
+        <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 -translate-y-1/2" style={{ top: '2.5rem', background: 'hsl(var(--accent) / 0.2)' }} />
         
         <div className="grid gap-16 md:grid-cols-5 md:gap-6 relative">
           {processSteps.map((step, index) => (
             <div key={step.title} className="relative flex flex-col items-center text-center group">
               {/* Mobile Connector Line */}
               {index < processSteps.length - 1 && (
-                <div className="md:hidden absolute top-0 left-1/2 w-0.5 h-full -translate-x-1/2" style={{ top: '3rem', background: 'hsl(var(--accent) / 0.2)', zIndex: 0 }} />
+                <div className="md:hidden absolute top-0 left-1/2 w-0.5 h-full -translate-x-1/2" style={{ top: '2.5rem', background: 'hsl(var(--accent) / 0.2)', zIndex: 0 }} />
               )}
               
               <div className="relative z-10 mb-[-2.5rem]">
-                  <div className="relative flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-md">
-                      <step.icon className="h-10 w-10 text-accent" />
+                  <div className="relative flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-md">
+                      <step.icon className="h-8 w-8 text-accent" />
                       <div 
                           className="absolute -top-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full bg-accent text-white font-bold text-sm shadow-md"
                       >
