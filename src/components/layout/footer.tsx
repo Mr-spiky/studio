@@ -2,12 +2,12 @@ import Link from 'next/link';
 import { Code } from 'lucide-react';
 
 const quickLinks = [
-  { name: 'About', href: '#why-choose-us' },
+  { name: 'Home', href: '#home' },
   { name: 'Services', href: '#services' },
-  { name: 'Our Process', href: '#process' },
-  { name: 'Portfolio', href: '#contact' },
-  { name: 'Blog', href: '#blog' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Solution', href: '#process' },
+  { name: 'About Us', href: '#why-choose-us' },
+  { name: 'Hire Developers', href: '#contact' },
+  { name: 'Blogs', href: '#blog' },
 ];
 
 export default function Footer() {
@@ -31,7 +31,7 @@ export default function Footer() {
                 {quickLinks.map((link) => (
                   <li key={link.name}>
                     <Link href={link.href} className="text-primary-foreground/80 hover:text-primary-foreground">
-                      {link.href.startsWith('#') ? link.name : `${link.name} ↗`}
+                      {link.name}
                     </Link>
                   </li>
                 ))}
