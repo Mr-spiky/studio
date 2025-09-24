@@ -49,12 +49,14 @@ export default function ProcessTimeline() {
         </p>
       </div>
       <div className="relative mt-20">
-        <div className="absolute left-1/2 top-8 hidden h-0.5 w-full -translate-x-1/2 bg-gray-200 md:block" />
+        <div className="absolute left-0 top-8 hidden w-full h-0.5 bg-gray-200 md:block" />
+        <div className="absolute top-8 left-1/2 w-0.5 h-full bg-gray-200 md:hidden" />
+        
         <div className="grid gap-16 md:grid-cols-5 md:gap-6">
           {processSteps.map((step, index) => (
-            <div key={step.title} className="relative group flex flex-col items-center">
+            <div key={step.title} className="relative group flex flex-col items-center text-center md:text-left">
               <Card
-                className="text-center transition-all duration-300 ease-in-out hover:-translate-y-1.5 hover:shadow-2xl bg-white/60 backdrop-blur-sm border-white/30 w-full"
+                className="relative text-center transition-all duration-300 ease-in-out hover:-translate-y-1.5 hover:shadow-2xl bg-white/60 backdrop-blur-sm border-white/30 w-full"
                 style={{
                     boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
                     border: '1px solid rgba(255, 255, 255, 0.3)',
@@ -66,6 +68,9 @@ export default function ProcessTimeline() {
                     style={{ background: 'linear-gradient(45deg, #667eea, #764ba2)'}}
                 />
                 <div className="p-6 pt-10">
+                   <div className="absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white font-bold text-sm shadow-md z-20" style={{background: '#667eea'}}>
+                    {index + 1}
+                  </div>
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-md z-10">
                     <step.icon className="h-8 w-8 text-accent" />
                   </div>
