@@ -10,6 +10,7 @@ import { CodeXml, Cloud, BrainCircuit, TrendingUp, Scaling, Smartphone, Rocket, 
 import AIPoweredInsights from '@/components/sections/ai-powered-insights';
 import ProcessTimeline from '@/components/sections/process-timeline';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 interface SectionProps {
   id: string;
@@ -61,6 +62,14 @@ const blogPosts = [
 ];
 
 const clientLogos = [ 'TechCorp', 'Innovate Inc.', 'Quantum Solutions', 'Nexus Enterprises', 'Apex Industries' ];
+
+const awardLogos = [
+    { src: 'https://www.g1technologies.online/_next/static/media/award-clutch.4f0bbe8c.svg', alt: 'Clutch Award' },
+    { src: 'https://www.g1technologies.online/_next/static/media/award-upwork.d4acf392.svg', alt: 'Upwork Top Rated' },
+    { src: 'https://www.g1technologies.online/_next/static/media/award-softwareworld.fc2ecdd8.svg', alt: 'SoftwareWorld Award' },
+    { src: 'https://www.g1technologies.online/_next/static/media/award-appdevelopment.952afba3.svg', alt: 'AppDevelopment Award' },
+];
+
 
 export default function Home() {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
@@ -173,6 +182,19 @@ export default function Home() {
                     </div>
                 ))}
             </div>
+        </Section>
+        
+        <Section id="awards" className="bg-background !py-0">
+          <div className="flex flex-col items-center justify-center gap-8 md:flex-row md:gap-16">
+            {awardLogos.map((award, index) => (
+              <img
+                key={index}
+                src={award.src}
+                alt={award.alt}
+                className="h-[50px] object-contain transition-opacity hover:opacity-80"
+              />
+            ))}
+          </div>
         </Section>
 
         <Section id="blog" className="bg-primary/5">
