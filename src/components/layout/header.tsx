@@ -38,7 +38,7 @@ export default function Header() {
         </nav>
         <div className="hidden md:block">
           <Button variant="outline" className="text-foreground border-border hover:bg-background/80 hover:text-foreground bg-background" asChild>
-            <Link href="/contact">Get a Quote</Link>
+            <Link href="/contact">Contact Us</Link>
           </Button>
         </div>
         <div className="md:hidden">
@@ -75,7 +75,7 @@ export default function Header() {
                 </nav>
                 <div className="mt-auto">
                     <Button className="w-full bg-background text-foreground hover:bg-background/80" variant="outline" asChild>
-                        <Link href="/contact" onClick={() => setIsOpen(false)}>Get a Quote</Link>
+                        <Link href="/contact" onClick={() => setIsOpen(false)}>Contact Us</Link>
                     </Button>
                 </div>
               </div>
