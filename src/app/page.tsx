@@ -61,8 +61,6 @@ const blogPosts = [
     { title: 'Cloud Security Essentials', description: 'Protecting your data in cloud environments' },
 ];
 
-const clientLogos = [ 'TechCorp', 'Innovate Inc.', 'Quantum Solutions', 'Nexus Enterprises', 'Apex Industries' ];
-
 const awardLogos = [
     { src: 'https://www.g1technologies.online/_next/static/media/award-clutch.4f0bbe8c.svg', alt: 'Clutch Award' },
     { src: 'https://www.g1technologies.online/_next/static/media/award-upwork.d4acf392.svg', alt: 'Upwork Top Rated' },
@@ -172,17 +170,6 @@ export default function Home() {
         </Section>
 
         <ProcessTimeline />
-
-        <Section id="clients" className="bg-background">
-            <h2 className="text-center text-xl font-semibold text-muted-foreground tracking-wider">Trusted by innovative companies worldwide</h2>
-            <div className="mt-10 grid grid-cols-2 items-center justify-items-center gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
-                {clientLogos.map((logo) => (
-                    <div key={logo} className="text-2xl font-semibold text-muted-foreground/60 transition-colors hover:text-foreground">
-                        {logo}
-                    </div>
-                ))}
-            </div>
-        </Section>
         
         <Section id="awards" className="bg-background !py-0">
           <div className="flex flex-col items-center justify-center gap-8 md:flex-row md:gap-16">
