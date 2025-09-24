@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Search, FileText, Code, Rocket, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Card } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
 const Section: FC<{ id: string; className?: string; children: React.ReactNode }> = ({ id, className, children }) => (
   <section id={id} className={cn('py-12 md:py-20', className)}>
@@ -49,34 +49,30 @@ export default function ProcessTimeline() {
         </p>
       </div>
       <div className="relative mt-20">
-        <div className="absolute left-0 top-8 hidden w-full h-0.5 bg-gray-200 lg:block" />
-        <div className="absolute top-8 left-1/2 w-0.5 h-full bg-gray-200 lg:hidden" />
-        
-        <div className="grid gap-16 lg:grid-cols-5 md:grid-cols-2 md:gap-8">
+        <div 
+          className="absolute left-0 right-0 top-8 h-0.5 bg-blue-100 hidden md:block"
+          style={{ width: 'calc(100% - 8rem)', margin: '0 auto' }}
+        />
+        <div className="grid gap-10 md:grid-cols-5 md:gap-6">
           {processSteps.map((step, index) => (
-            <div key={step.title} className="relative group flex flex-col items-center text-center">
-              <Card
-                className="relative text-center transition-all duration-300 ease-in-out hover:-translate-y-1.5 hover:shadow-2xl bg-white/60 backdrop-blur-sm border-white/30 w-full"
-                style={{
-                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
-                    border: '1px solid rgba(255, 255, 255, 0.3)',
-                    background: 'rgba(255, 255, 255, 0.7)',
-                }}
-              >
-                <div 
-                    className="absolute top-0 left-0 right-0 h-1 rounded-t-lg"
-                    style={{ background: 'linear-gradient(45deg, #667eea, #764ba2)'}}
-                />
-                <div className="p-6 pt-10">
-                   <div className="absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white font-bold text-sm shadow-md z-20" style={{background: '#667eea'}}>
-                    {index + 1}
-                  </div>
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-md z-10">
+            <div key={step.title} className="relative flex flex-col items-center text-center">
+              <div className="absolute -top-12 w-full flex justify-center">
+                <div className="relative">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-md z-10">
                     <step.icon className="h-8 w-8 text-accent" />
                   </div>
-                  <h3 className="text-xl font-bold mt-2" style={{color: '#2d3748'}}>{step.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
+                  <div className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-teal-500 text-white font-bold text-xs shadow-md z-20">
+                    {index + 1}
+                  </div>
                 </div>
+              </div>
+              <Card className="relative w-full pt-12 border-t-4 border-accent bg-card shadow-md">
+                <CardHeader>
+                  <h3 className="text-xl font-bold text-primary">{step.title}</h3>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">{step.description}</p>
+                </CardContent>
               </Card>
             </div>
           ))}
