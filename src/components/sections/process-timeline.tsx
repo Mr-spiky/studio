@@ -49,7 +49,8 @@ export default function ProcessTimeline() {
         </p>
       </div>
       <div className="relative mt-20">
-        <div className="grid gap-10 md:grid-cols-5 md:gap-6">
+        <div className="absolute left-0 right-0 top-8 h-0.5 bg-gray-200 md:left-1/2 md:top-1/2 md:h-auto md:w-0.5 md:-translate-y-1/2" />
+        <div className="grid gap-16 md:grid-cols-5 md:gap-6">
           {processSteps.map((step, index) => (
             <div key={step.title} className="relative group flex flex-col items-center">
               <Card
@@ -73,7 +74,7 @@ export default function ProcessTimeline() {
                         {index + 1}
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-primary mt-2" style={{color: '#2d3748'}}>{step.title}</h3>
+                  <h3 className="text-xl font-bold mt-2" style={{color: '#2d3748'}}>{step.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
                 </div>
               </Card>
