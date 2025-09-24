@@ -49,12 +49,12 @@ export default function ProcessTimeline() {
         </p>
       </div>
       <div className="relative mt-20">
-        <div className="absolute left-0 top-8 hidden w-full h-0.5 bg-gray-200 md:block" />
-        <div className="absolute top-8 left-1/2 w-0.5 h-full bg-gray-200 md:hidden" />
+        <div className="absolute left-0 top-8 hidden w-full h-0.5 bg-gray-200 lg:block" />
+        <div className="absolute top-8 left-1/2 w-0.5 h-full bg-gray-200 lg:hidden" />
         
-        <div className="grid gap-16 md:grid-cols-5 md:gap-6">
+        <div className="grid gap-16 lg:grid-cols-5 md:grid-cols-2 md:gap-8">
           {processSteps.map((step, index) => (
-            <div key={step.title} className="relative group flex flex-col items-center text-center md:text-left">
+            <div key={step.title} className="relative group flex flex-col items-center text-center">
               <Card
                 className="relative text-center transition-all duration-300 ease-in-out hover:-translate-y-1.5 hover:shadow-2xl bg-white/60 backdrop-blur-sm border-white/30 w-full"
                 style={{
