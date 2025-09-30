@@ -40,8 +40,8 @@ export default function Header() {
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
         isScrolled
-          ? 'bg-gray-100/80 text-primary shadow-md backdrop-blur-lg'
-          : 'bg-transparent text-white'
+          ? 'bg-gray-100/80 shadow-md backdrop-blur-lg'
+          : 'bg-transparent'
       )}
     >
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
@@ -74,7 +74,7 @@ export default function Header() {
         <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className={cn(isScrolled ? 'hover:bg-primary/10' : 'hover:bg-white/10')}>
+              <Button variant="ghost" size="icon" className={cn(isScrolled ? 'hover:bg-primary/10 text-primary' : 'hover:bg-white/10 text-white')}>
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
