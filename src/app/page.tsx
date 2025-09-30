@@ -64,14 +64,6 @@ const blogPosts = [
     { id: '3', title: 'Cloud Security Essentials', description: 'Protecting your data in cloud environments' },
 ];
 
-const awardLogos = [
-    { src: 'https://www.g1technologies.online/_next/static/media/award-clutch.4f0bbe8c.svg', alt: 'Clutch Award' },
-    { src: 'https://www.g1technologies.online/_next/static/media/award-upwork.d4acf392.svg', alt: 'Upwork Top Rated' },
-    { src: 'https://www.g1technologies.online/_next/static/media/award-softwareworld.fc2ecdd8.svg', alt: 'SoftwareWorld Award' },
-    { src: 'https://www.g1technologies.online/_next/static/media/award-appdevelopment.952afba3.svg', alt: 'AppDevelopment Award' },
-];
-
-
 export default function Home() {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
 

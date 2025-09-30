@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Code } from 'lucide-react';
+import Logo from './logo';
 
 const quickLinks = [
   { name: 'Home', href: '/' },
@@ -16,9 +16,8 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12 md:px-6">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-2" prefetch={false}>
-              <Code className="h-7 w-7 text-primary-foreground" />
-              <span className="text-lg font-bold text-primary-foreground font-headline">GIT Technologies</span>
+            <Link href="/" className="flex items-center gap-2 group" prefetch={false}>
+              <Logo className="h-9" />
             </Link>
             <p className="text-primary-foreground/80">
               Transforming businesses through innovative technology solutions.
