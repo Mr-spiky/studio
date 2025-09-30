@@ -40,7 +40,7 @@ export default function Header() {
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
         isScrolled
-          ? 'bg-gray-100/80 shadow-md backdrop-blur-lg'
+          ? 'bg-[#bacad6]/80 shadow-md backdrop-blur-lg'
           : 'bg-transparent'
       )}
     >
@@ -79,11 +79,11 @@ export default function Header() {
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-primary text-primary-foreground border-l-primary-foreground/20">
-              <SheetHeader className="border-b border-primary-foreground/20 pb-4 text-left">
-                <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+            <SheetContent side="right">
+              <SheetHeader>
+                <SheetTitle className='sr-only'>Mobile Menu</SheetTitle>
                  <Link href="/" className="flex items-center gap-2 group" onClick={() => setIsOpen(false)}>
-                    <Logo className="h-8 text-white" />
+                    <Logo className="h-8 text-primary" />
                   </Link>
               </SheetHeader>
               <div className="flex flex-col h-full">
@@ -93,14 +93,14 @@ export default function Header() {
                       key={link.name}
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className="text-lg font-medium text-primary-foreground/80 transition-colors hover:text-primary-foreground"
+                      className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground"
                     >
                       {link.name}
                     </Link>
                   ))}
                 </nav>
                 <div className="mt-auto">
-                    <Button className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90" asChild>
+                    <Button className="w-full" asChild>
                         <Link href="/contact" onClick={() => setIsOpen(false)}>Contact Us</Link>
                     </Button>
                 </div>
