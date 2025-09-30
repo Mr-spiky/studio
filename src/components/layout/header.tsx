@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import Logo from './logo';
 
 const navLinks = [
@@ -50,6 +50,9 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="bg-primary text-primary-foreground border-l-primary-foreground/20">
+              <SheetHeader>
+                <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+              </SheetHeader>
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between border-b border-primary-foreground/20 pb-4">
                    <Link href="/" className="flex items-center gap-2 group" onClick={() => setIsOpen(false)}>
