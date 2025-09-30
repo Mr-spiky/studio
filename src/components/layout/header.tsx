@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -25,63 +25,44 @@ const navLinks = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
-    <header
-      className={cn(
-        'sticky top-0 z-50 w-full transition-all duration-300',
-        isScrolled
-          ? 'bg-[#bacad6]/80 shadow-md backdrop-blur-lg'
-          : 'bg-transparent'
-      )}
-    >
+    <header className="sticky top-0 z-50 w-full bg-[#bacad6]/80 shadow-md backdrop-blur-lg">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
         <Link
           href="/"
           className="flex items-center gap-2 group"
           prefetch={false}
         >
-          <Logo className={cn("h-8", isScrolled ? "text-primary" : "text-white")} />
+          <Logo className="h-8 text-primary" />
         </Link>
         <nav className="hidden md:flex md:items-center md:gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className={cn(
-                'text-sm font-medium transition-colors',
-                 isScrolled ? 'text-foreground/80 hover:text-foreground' : 'text-white/80 hover:text-white'
-              )}
+              className="text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
             >
               {link.name}
             </Link>
           ))}
         </nav>
         <div className="hidden md:block">
-          <Button asChild variant={isScrolled ? 'default' : 'outline'} className={cn(!isScrolled && 'border-white text-white hover:bg-white hover:text-primary')}>
+          <Button asChild>
             <Link href="/contact">Contact Us</Link>
           </Button>
         </div>
         <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className={cn(isScrolled ? 'hover:bg-primary/10 text-primary' : 'hover:bg-white/10 text-white')}>
+              <Button variant="ghost" size="icon" className="hover:bg-primary/10 text-primary">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
               <SheetHeader>
-                <SheetTitle className='sr-only'>Mobile Menu</SheetTitle>
+                <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
                  <Link href="/" className="flex items-center gap-2 group" onClick={() => setIsOpen(false)}>
                     <Logo className="h-8 text-primary" />
                   </Link>
