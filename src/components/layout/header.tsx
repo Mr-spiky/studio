@@ -50,19 +50,13 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="bg-primary text-primary-foreground border-l-primary-foreground/20">
-              <SheetHeader>
+              <SheetHeader className="border-b border-primary-foreground/20 pb-4">
+                 <Link href="/" className="flex items-center gap-2 group" onClick={() => setIsOpen(false)}>
+                    <Logo className="h-8" />
+                  </Link>
                 <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
               </SheetHeader>
               <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between border-b border-primary-foreground/20 pb-4">
-                   <Link href="/" className="flex items-center gap-2 group" onClick={() => setIsOpen(false)}>
-                      <Logo className="h-8" />
-                    </Link>
-                    <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="hover:bg-primary/80">
-                        <X className="h-6 w-6" />
-                        <span className="sr-only">Close menu</span>
-                    </Button>
-                </div>
                 <nav className="mt-6 flex flex-col gap-4">
                   {navLinks.map((link) => (
                     <Link
