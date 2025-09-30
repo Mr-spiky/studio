@@ -42,7 +42,7 @@ const ClientCarousel: FC = () => {
               {awardLogos.map((logo, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 transition-all duration-300 filter grayscale hover:grayscale-0 hover:scale-110"
+                  className="flex-shrink-0 transition-all duration-300 filter hover:scale-110"
                 >
                   <Image
                     src={logo.src}
