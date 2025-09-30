@@ -40,7 +40,7 @@ export default function Header() {
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
         isScrolled
-          ? 'bg-primary text-primary-foreground shadow-md'
+          ? 'bg-gray-100/80 text-primary shadow-md backdrop-blur-lg'
           : 'bg-transparent text-white'
       )}
     >
@@ -50,7 +50,7 @@ export default function Header() {
           className="flex items-center gap-2 group"
           prefetch={false}
         >
-          <Logo className="h-8" />
+          <Logo className={cn("h-8", isScrolled ? "text-primary" : "text-white")} />
         </Link>
         <nav className="hidden md:flex md:items-center md:gap-6">
           {navLinks.map((link) => (
@@ -59,7 +59,7 @@ export default function Header() {
               href={link.href}
               className={cn(
                 'text-sm font-medium transition-colors',
-                 isScrolled ? 'text-primary-foreground/80 hover:text-primary-foreground' : 'text-white/80 hover:text-white'
+                 isScrolled ? 'text-foreground/80 hover:text-foreground' : 'text-white/80 hover:text-white'
               )}
             >
               {link.name}
@@ -67,24 +67,24 @@ export default function Header() {
           ))}
         </nav>
         <div className="hidden md:block">
-          <Button asChild variant={isScrolled ? 'secondary' : 'outline'} className={cn(!isScrolled && 'border-white text-white hover:bg-white hover:text-primary')}>
+          <Button asChild variant={isScrolled ? 'default' : 'outline'} className={cn(!isScrolled && 'border-white text-white hover:bg-white hover:text-primary')}>
             <Link href="/contact">Contact Us</Link>
           </Button>
         </div>
         <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className={cn(isScrolled ? 'hover:bg-primary/80' : 'hover:bg-white/10')}>
+              <Button variant="ghost" size="icon" className={cn(isScrolled ? 'hover:bg-primary/10' : 'hover:bg-white/10')}>
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="bg-primary text-primary-foreground border-l-primary-foreground/20">
-              <SheetHeader className="border-b border-primary-foreground/20 pb-4">
-                 <Link href="/" className="flex items-center gap-2 group" onClick={() => setIsOpen(false)}>
-                    <Logo className="h-8" />
-                  </Link>
+              <SheetHeader className="border-b border-primary-foreground/20 pb-4 text-left">
                 <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+                 <Link href="/" className="flex items-center gap-2 group" onClick={() => setIsOpen(false)}>
+                    <Logo className="h-8 text-white" />
+                  </Link>
               </SheetHeader>
               <div className="flex flex-col h-full">
                 <nav className="mt-6 flex flex-col gap-4">
