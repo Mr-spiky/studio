@@ -1,5 +1,4 @@
 // src/components/sections/client-carousel.tsx
-
 'use client';
 
 import { FC } from 'react';
@@ -22,16 +21,15 @@ const ClientCarousel: FC = () => {
   return (
     <section
       id="clients"
-      className="relative py-8 md:py-12 overflow-hidden bg-background"
+      className="relative py-16 md:py-20 overflow-hidden bg-primary/5"
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="relative rounded-2xl border border-transparent bg-white/10 p-8 shadow-2xl backdrop-blur-xl [border-image:linear-gradient(45deg,theme(colors.accent.DEFAULT),#764ba2)_1]">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline animate-float">
+        <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline animate-subtle-float">
               Awards & Recognition
             </h2>
           </div>
-          <div
+        <div
             className="group relative w-full overflow-hidden"
             style={
               {
@@ -44,7 +42,7 @@ const ClientCarousel: FC = () => {
               {awardLogos.map((logo, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 transition-all duration-300 hover:scale-110 hover:opacity-100 opacity-80"
+                  className="flex-shrink-0 transition-all duration-300 filter grayscale hover:grayscale-0 hover:scale-110"
                 >
                   <Image
                     src={logo.src}
@@ -57,22 +55,21 @@ const ClientCarousel: FC = () => {
               ))}
             </div>
           </div>
-        </div>
       </div>
       <style jsx>{`
-        @keyframes float {
+        @keyframes subtle-float {
           0% {
             transform: translateY(0px);
           }
           50% {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
           }
           100% {
             transform: translateY(0px);
           }
         }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
+        .animate-subtle-float {
+          animation: subtle-float 5s ease-in-out infinite;
         }
 
         @keyframes scroll {
@@ -84,7 +81,7 @@ const ClientCarousel: FC = () => {
           }
         }
         .animate-scroll {
-          animation: scroll 20s linear infinite;
+          animation: scroll 30s linear infinite;
         }
         .group:hover .animate-scroll {
           animation-play-state: paused;
