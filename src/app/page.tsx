@@ -83,26 +83,35 @@ export default function Home() {
 
   return (
     <>
-        <Section id="home" className="!pt-0">
-          <div className="relative overflow-hidden rounded-b-3xl bg-primary/10">
-            <div className="container mx-auto px-4 md:px-6 py-24 text-center">
-              <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl md:text-6xl font-headline">
-                GIT Technologies
-              </h1>
-              <p className="mt-6 max-w-2xl mx-auto text-lg leading-8 text-foreground/80">
-                Pioneering the future of technology with cutting-edge web solutions, cloud infrastructure, and AI integration.
-              </p>
-              <div className="mt-10 flex items-center justify-center gap-x-6">
-                <Button size="lg" asChild>
-                  <Link href="/services">Get Started</Link>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="/solutions">View Portfolio</Link>
-                </Button>
-              </div>
+        <section id="home" className="relative flex items-center justify-center min-h-screen !py-0 text-white">
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-[-1]">
+            <video
+              src="https://video.wixstatic.com/video/d5c245_ea2270e596434428a1629246cab78f23/1080p/mp4/file.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            ></video>
+          </div>
+          <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[-1]"></div>
+          <div className="container mx-auto px-4 md:px-6 text-center">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-headline text-shadow-lg">
+              GIT Technologies
+            </h1>
+            <p className="mt-6 max-w-2xl mx-auto text-lg leading-8 text-white/90 text-shadow">
+              Pioneering the future of technology with cutting-edge web solutions, cloud infrastructure, and AI integration.
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
+              <Button size="lg" asChild>
+                <Link href="/services">Get Started</Link>
+              </Button>
+              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
+                <Link href="/solutions">View Portfolio</Link>
+              </Button>
             </div>
           </div>
-        </Section>
+        </section>
 
         <Section id="services" className="bg-background">
           <div className="text-center">
