@@ -103,7 +103,7 @@ export default function Home() {
               Pioneering the future of technology with cutting-edge web solutions, cloud infrastructure, and AI integration.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button size="lg" asChild>
+              <Button size="lg" asChild className="bg-[#e0f0f5] text-primary hover:bg-[#e0f0f5]/90">
                 <Link href="/services">Get Started</Link>
               </Button>
               <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
