@@ -8,7 +8,7 @@ const Logo = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
     className={cn('h-9 w-auto', className)}
     {...props}
   >
-    <g fill="white">
+    <g className="fill-foreground">
       <path
         d="M21.8,11.3c-2.3,2.3-5.5,3.7-8.9,3.7c-3.4,0-6.6-1.4-8.9-3.7L0.2,15c2.6,2.6,6.2,4.2,10,4.2c0,0,0,0,0,0c3.8,0,7.3-1.6,10-4.2L21.8,11.3z"
         transform="translate(15, 10)"
