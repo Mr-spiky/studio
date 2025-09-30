@@ -5,7 +5,7 @@ import type { FC } from 'react';
 import { useState, ComponentType, SVGProps } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CodeXml, Cloud, BrainCircuit, TrendingUp, Scaling, Smartphone, Rocket, Search } from 'lucide-react';
+import { Scaling, Smartphone, Rocket, Search } from 'lucide-react';
 import AIPoweredInsights from '@/components/sections/ai-powered-insights';
 import ProcessTimeline from '@/components/sections/process-timeline';
 import ClientCarousel from '@/components/sections/client-carousel';
@@ -29,6 +29,61 @@ interface IconProps extends SVGProps<SVGSVGElement> {
   className?: string;
 }
 
+const AnimatedCodeIcon = (props: IconProps) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <style>{`
+            .tag-left { animation: slide-right 2.5s ease-in-out infinite alternate; }
+            .tag-right { animation: slide-left 2.5s ease-in-out infinite alternate; }
+            @keyframes slide-right { from { transform: translateX(-1px); } to { transform: translateX(1px); } }
+            @keyframes slide-left { from { transform: translateX(1px); } to { transform: translateX(-1px); } }
+        `}</style>
+        <polyline className="tag-left" points="8 6 2 12 8 18"></polyline>
+        <polyline className="tag-right" points="16 6 22 12 16 18"></polyline>
+    </svg>
+);
+
+const AnimatedCloudIcon = (props: IconProps) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <style>{`
+            .cloud-main { animation: float-up 3s ease-in-out infinite alternate; }
+            .cloud-shadow { animation: float-up-delay 3s ease-in-out infinite alternate; opacity: 0.5; }
+            @keyframes float-up { from { transform: translateY(1.5px); } to { transform: translateY(-1.5px); } }
+            @keyframes float-up-delay { from { transform: translateY(0px); } to { transform: translateY(-1px); } }
+        `}</style>
+        <path className="cloud-shadow" d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+        <path className="cloud-main" d="M20 16.2A4.5 4.5 0 0 0 17.5 8h-1.8A7 7 0 1 0 9 20h8.5"></path>
+    </svg>
+);
+
+const AnimatedBrainIcon = (props: IconProps) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <style>{`
+            .spark { animation: pulse 1.5s ease-in-out infinite; transform-origin: center; }
+            .spark-2 { animation-delay: 0.3s; }
+            .spark-3 { animation-delay: 0.6s; }
+            @keyframes pulse { 0%, 100% { transform: scale(0.8); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 1; } }
+        `}</style>
+        <path d="M12 2a4.5 4.5 0 0 0-4.5 4.5v.43a2.5 2.5 0 0 1-2.43 2.57 2.5 2.5 0 0 1-2.57-2.43c0-1.4.53-2.66 1.4-3.57"></path>
+        <path d="M12 2a4.5 4.5 0 0 1 4.5 4.5v.43a2.5 2.5 0 0 0 2.43 2.57 2.5 2.5 0 0 0 2.57-2.43c0-1.4-.53-2.66-1.4-3.57"></path>
+        <path d="M14.5 13.5a2.5 2.5 0 0 0 0-5h-5a2.5 2.5 0 0 0 0 5Z"></path>
+        <path className="spark" d="M2.5 12.5a2.5 2.5 0 0 0 0 5h.43a2.5 2.5 0 0 1 2.57 2.43 2.5 2.5 0 0 1-2.43 2.57c-1.4 0-2.66-.53-3.57-1.4"></path>
+        <path className="spark spark-2" d="M21.5 12.5a2.5 2.5 0 0 1 0 5h-.43a2.5 2.5 0 0 0-2.57 2.43 2.5 2.5 0 0 0 2.43 2.57c1.4 0 2.66-.53 3.57-1.4"></path>
+        <path className="spark spark-3" d="M12 22a2.5 2.5 0 0 1-2.5-2.5v-.43a2.5 2.5 0 0 0-2.57-2.43 2.5 2.5 0 0 0-2.43 2.57c0 1.4.53 2.66 1.4 3.57"></path>
+        <path d="M12 22a2.5 2.5 0 0 0 2.5-2.5v-.43a2.5 2.5 0 0 1 2.57-2.43 2.5 2.5 0 0 1 2.43 2.57c0 1.4-.53 2.66-1.4 3.57"></path>
+    </svg>
+);
+
+const AnimatedTrendingUpIcon = (props: IconProps) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <style>{`
+            .arrow-path { stroke-dasharray: 26; stroke-dashoffset: 26; animation: draw-arrow 2s ease-out infinite alternate; }
+            @keyframes draw-arrow { to { stroke-dashoffset: 0; } }
+        `}</style>
+        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+        <polyline className="arrow-path" points="16 7 22 7 22 13"></polyline>
+    </svg>
+);
+
 type Service = {
   icon: ComponentType<IconProps>;
   title: string;
@@ -36,10 +91,10 @@ type Service = {
 };
 
 const services: Service[] = [
-  { icon: CodeXml, title: 'Web Development', description: 'Modern, responsive websites built for performance and user experience' },
-  { icon: Cloud, title: 'Cloud Solutions', description: 'Scalable and secure cloud infrastructure for business growth' },
-  { icon: BrainCircuit, title: 'AI Integration', description: 'Smart automation and AI-driven insights for innovation' },
-  { icon: TrendingUp, title: 'SEO Optimization', description: 'Data-driven strategies to enhance your online visibility' },
+  { icon: AnimatedCodeIcon, title: 'Web Development', description: 'Modern, responsive websites built for performance and user experience' },
+  { icon: AnimatedCloudIcon, title: 'Cloud Solutions', description: 'Scalable and secure cloud infrastructure for business growth' },
+  { icon: AnimatedBrainIcon, title: 'AI Integration', description: 'Smart automation and AI-driven insights for innovation' },
+  { icon: AnimatedTrendingUpIcon, title: 'SEO Optimization', description: 'Data-driven strategies to enhance your online visibility' },
 ];
 
 const features: Service[] = [
@@ -131,7 +186,7 @@ export default function Home() {
                 )}
               >
                 <CardHeader className="items-center">
-                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent">
+                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent transition-transform duration-300 group-hover:scale-110">
                     <service.icon className="h-8 w-8" />
                   </div>
                   <CardTitle className="font-headline text-xl">{service.title}</CardTitle>
@@ -209,3 +264,5 @@ export default function Home() {
     </>
   );
 }
+
+    
