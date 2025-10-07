@@ -6,7 +6,7 @@ Designed to showcase innovation, speed, and modern UI design principles — G1 T
 ---
 
 ## 🚀 Live Demo  
-🔗 [Visit Website](https://studio-b8jo52m2b-mr-spikys-projects.vercel.app/)
+🔗 [Visit Website](https://studio-ruby-eta.vercel.app/)
 
 ---
 
