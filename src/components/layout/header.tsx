@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -17,7 +17,7 @@ import { cn } from '@/lib/utils';
 const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services' },
-  { name: 'Solution', href: '/solutions' },
+  { name: 'Solutions', href: '/solutions' },
   { name: 'About Us', href: '/about-us' },
   { name: 'Hire Developers', href: '/hire-developers' },
   { name: 'Blogs', href: '/blogs' },
@@ -25,12 +25,21 @@ const navLinks = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <header
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
-        'bg-primary shadow-md'
+        scrolled ? 'bg-primary shadow-md' : 'bg-transparent'
       )}
     >
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
@@ -39,7 +48,7 @@ export default function Header() {
           className="flex items-center gap-2 group"
           prefetch={false}
         >
-          <Logo className="h-8" />
+          <Logo className="h-8" scrolled={scrolled} />
         </Link>
         <nav className="hidden md:flex md:items-center md:gap-6">
           {navLinks.map((link) => (
@@ -47,7 +56,8 @@ export default function Header() {
               key={link.name}
               href={link.href}
               className={cn(
-                'text-sm font-medium transition-colors text-primary-foreground/80 hover:text-primary-foreground'
+                'text-sm font-medium transition-colors',
+                scrolled ? 'text-primary-foreground/80 hover:text-primary-foreground' : 'text-white/80 hover:text-white'
               )}
             >
               {link.name}
@@ -56,7 +66,8 @@ export default function Header() {
         </nav>
         <div className="hidden md:block">
           <Button
-            variant={'secondary'}
+            variant={scrolled ? 'secondary' : 'outline'}
+            className={cn(!scrolled && 'text-white border-white hover:bg-white hover:text-primary')}
             asChild
           >
             <Link href="/contact">Contact Us</Link>
@@ -68,7 +79,7 @@ export default function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className={cn('text-primary-foreground hover:bg-black/10')}
+                className={cn(scrolled ? 'text-primary-foreground' : 'text-white', 'hover:bg-black/10')}
               >
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation menu</span>
@@ -77,7 +88,7 @@ export default function Header() {
             <SheetContent side="right">
               <SheetHeader>
                  <Link href="/" className="flex items-center gap-2 group" onClick={() => setIsOpen(false)}>
-                    <Logo className="h-8" />
+                    <Logo className="h-8" scrolled={true} />
                  </Link>
                  <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
               </SheetHeader>

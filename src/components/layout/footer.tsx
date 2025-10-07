@@ -4,7 +4,7 @@ import Logo from './logo';
 const quickLinks = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services' },
-  { name: 'Solution', href: '/solutions' },
+  { name: 'Solutions', href: '/solutions' },
   { name: 'About Us', href: '/about-us' },
   { name: 'Hire Developers', href: '/hire-developers' },
   { name: 'Blogs', href: '/blogs' },
@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2 group" prefetch={false}>
-              <Logo className="h-9" />
+              <Logo className="h-9" scrolled={true} />
             </Link>
             <p className="text-primary-foreground/80">
               Transforming businesses through innovative technology solutions.
@@ -39,15 +39,15 @@ export default function Footer() {
             <div>
                 <h3 className="font-semibold text-primary-foreground">Contact Us</h3>
                 <ul className="mt-4 space-y-2 text-primary-foreground/80">
-                    <li>123 Tech Street, Silicon Valley, CA</li>
-                    <li>contact@git-tech.com</li>
+                    <li>123 Tech Street, Silicon Valley, CA 94000</li>
+                    <li>contact@g1-technologies.com</li>
                     <li>(123) 456-7890</li>
                 </ul>
             </div>
           </div>
         </div>
         <div className="mt-8 border-t border-primary-foreground/10 pt-8 text-center text-sm text-primary-foreground/80">
-          &copy; {new Date().getFullYear()} GIT Technologies. All rights reserved.
+          &copy; {new Date().getFullYear()} G1 Technologies. All rights reserved.
         </div>
       </div>
     </footer>

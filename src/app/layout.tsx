@@ -5,7 +5,7 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 
 export const metadata: Metadata = {
-  title: 'GIT Technologies',
+  title: 'G1 Technologies',
   description: 'Pioneering the future of technology with cutting-edge web solutions, cloud infrastructure, and AI integration.',
 };
 

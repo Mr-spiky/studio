@@ -72,7 +72,7 @@ const pricingTiers = [
         cta: 'Get Started'
     },
     { 
-        name: 'Pro', 
+        name: 'Growth Plan', 
         price: '$999', 
         description: 'For growing businesses', 
         features: ['5-10 Pages Website', 'Advanced SEO', 'E-commerce', '3 Months Support'],
@@ -152,7 +152,7 @@ export default function ServicesPage() {
             <Accordion type="single" collapsible className="w-full grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {services.map((service) => (
                     <Card key={service.title} className="flex flex-col text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-accent">
-                        <CardHeader className="items-center">
+                        <CardHeader className="items-center text-center">
                             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent">
                                 <service.icon className="h-8 w-8" />
                             </div>

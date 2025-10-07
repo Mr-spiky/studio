@@ -14,7 +14,7 @@ const teamMembers = [
 ];
 
 const timeline = [
-    { year: '2015', event: 'Company Founded', description: 'GIT Technologies was born with a vision to revolutionize the digital landscape.'},
+    { year: '2015', event: 'Company Founded', description: 'G1 Technologies was born with a vision to revolutionize the digital landscape.'},
     { year: '2018', event: 'First Enterprise Client', description: 'Partnered with a Fortune 500 company, marking our entry into the big leagues.'},
     { year: '2020', event: 'Expanded Internationally', description: 'Opened our first international office to serve a global client base.'},
     { year: '2023', event: '50+ Projects Milestone', description: 'Successfully delivered over 50 innovative projects across various industries.'},
@@ -28,7 +28,7 @@ const values = [
 ]
 
 const testimonials = [
-    { name: 'Alex Johnson', company: 'InnovateCorp', text: 'Working with GIT Technologies was a game-changer. Their expertise and dedication are unmatched.', rating: 5 },
+    { name: 'Alex Johnson', company: 'InnovateCorp', text: 'Working with G1 Technologies was a game-changer. Their expertise and dedication are unmatched.', rating: 5 },
     { name: 'Maria Garcia', company: 'HealthCare Plus', text: 'The team delivered a high-quality product on time and on budget. Highly recommended.', rating: 5 },
     { name: 'Chen Wei', company: 'Fintech Solutions', text: 'Their solutions drove significant growth for our business. A truly valuable partner.', rating: 5 },
 ];
@@ -40,7 +40,7 @@ export default function AboutUsPage() {
       <section className="py-20 text-center bg-primary">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl font-headline">
-            About GIT Technologies
+            About G1 Technologies
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg leading-8 text-primary-foreground/80">
             We are a team of passionate developers, designers, and strategists dedicated to building the future of technology.

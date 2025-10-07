@@ -91,7 +91,7 @@ export default function Home() {
           <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[-1]"></div>
           <div className="container mx-auto px-4 md:px-6 text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-headline text-shadow-lg">
-              GIT Technologies
+              G1 Technologies
             </h1>
             <p className="mt-6 max-w-2xl mx-auto text-lg leading-8 text-white/90 text-shadow">
               Pioneering the future of technology with cutting-edge web solutions, cloud infrastructure, and AI integration.
@@ -124,7 +124,7 @@ export default function Home() {
                   selectedServices.includes(service.title) && 'ring-2 ring-accent'
                 )}
               >
-                <CardHeader className="items-center">
+                <CardHeader className="items-center text-center">
                   <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent transition-transform duration-300 group-hover:scale-110">
                     <service.icon className="h-8 w-8" />
                   </div>
@@ -143,7 +143,7 @@ export default function Home() {
         <Section id="why-choose-us" className="">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Why Choose GIT Technologies?</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Why Choose G1 Technologies?</h2>
               <p className="mt-4 text-lg text-foreground/80">
                 Proven expertise delivering exceptional results for businesses worldwide.
               </p>

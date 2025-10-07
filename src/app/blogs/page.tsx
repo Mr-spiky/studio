@@ -21,7 +21,7 @@ export default function BlogsPage() {
             Insights & Innovation
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg leading-8 text-primary-foreground/80">
-            Expert perspectives on technology trends, best practices, and industry insights from the GIT Technologies team.
+            Expert perspectives on technology trends, best practices, and industry insights from the G1 Technologies team.
           </p>
           <div className="mt-8 max-w-md mx-auto">
             <div className="relative">
