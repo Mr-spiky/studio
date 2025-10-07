@@ -51,9 +51,9 @@ export default function HireDevelopersPage() {
 
   return (
     <div className="bg-background">
-      <section className="py-20 text-center bg-primary/5">
+      <section className="py-20 text-center bg-primary">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl md:text-6xl font-headline">
+          <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl font-headline">
             Hire the Top 1% of Developers
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg leading-8 text-foreground/80">
@@ -69,11 +69,11 @@ export default function HireDevelopersPage() {
       <section id="developers" className="py-20">
         <div className="container mx-auto px-4">
             <div className="mb-12">
-                 <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline mb-4 text-center">Our Developer Showcase</h2>
+                 <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline mb-4 text-center">Our Developer Showcase</h2>
                  <p className="mt-4 max-w-2xl mx-auto text-lg text-center text-foreground/80">
                     Find the perfect developer for your project using our advanced filters.
                  </p>
-                 <Card className="p-4 mt-8 bg-primary/5">
+                 <Card className="p-4 mt-8 bg-card">
                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 items-center">
                          <div className="relative lg:col-span-2">
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
@@ -102,13 +102,13 @@ export default function HireDevelopersPage() {
             
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {filteredDevs.map((dev) => (
-                <Card key={dev.name} className="flex flex-col text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <Card key={dev.name} className="flex flex-col text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-accent">
                   <CardHeader className="items-center">
                     <Avatar className="w-24 h-24 mb-4">
                         <AvatarImage src={dev.image} alt={dev.name} />
                         <AvatarFallback>{dev.name.charAt(0)}</AvatarFallback>
                     </Avatar>
-                    <CardTitle className="font-headline text-xl">{dev.name}</CardTitle>
+                    <CardTitle className="font-headline text-xl text-primary-foreground">{dev.name}</CardTitle>
                     <CardDescription className="text-accent">{dev.role}</CardDescription>
                   </CardHeader>
                   <CardContent className="flex-grow">
@@ -116,7 +116,7 @@ export default function HireDevelopersPage() {
                         {dev.skills.map(skill => <Badge key={skill} variant="secondary">{skill}</Badge>)}
                     </div>
                     <p className="text-muted-foreground mb-4">{dev.experience} experience</p>
-                    <div className="text-2xl font-bold text-primary mb-4">${dev.rate}/hr</div>
+                    <div className="text-2xl font-bold text-primary-foreground mb-4">${dev.rate}/hr</div>
                   </CardContent>
                   <div className="p-6 border-t">
                     <Button className="w-full">View Profile</Button>
@@ -127,10 +127,10 @@ export default function HireDevelopersPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-primary/5">
+      <section className="py-20 bg-primary">
         <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">Flexible Hiring Models</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline">Flexible Hiring Models</h2>
                 <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
                     Choose the engagement model that perfectly fits your project needs and budget.
                 </p>
@@ -141,7 +141,7 @@ export default function HireDevelopersPage() {
                         <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent mx-auto">
                             <model.icon className="h-8 w-8" />
                         </div>
-                        <h3 className="text-xl font-bold text-primary mb-2">{model.title}</h3>
+                        <h3 className="text-xl font-bold text-primary-foreground mb-2">{model.title}</h3>
                         <p className="text-muted-foreground">{model.description}</p>
                     </Card>
                 ))}
@@ -152,7 +152,7 @@ export default function HireDevelopersPage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">Our Simple 4-Step Hiring Process</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline">Our Simple 4-Step Hiring Process</h2>
             </div>
             <div className="relative">
                  <div className="absolute left-1/2 top-4 hidden h-[calc(100%-2rem)] w-px bg-border md:block" />
@@ -162,7 +162,7 @@ export default function HireDevelopersPage() {
                         <div className="hidden md:flex absolute top-4 left-1/2 h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full bg-accent text-accent-foreground font-bold ring-8 ring-background">{item.step}</div>
                         <Card className={`w-full md:w-1/2 ${index % 2 !== 0 ? 'ml-auto' : ''}`}>
                             <CardHeader>
-                                <CardTitle>{item.title}</CardTitle>
+                                <CardTitle className="text-primary-foreground">{item.title}</CardTitle>
                                 <p className="text-sm font-semibold text-accent">{item.duration}</p>
                                 <CardDescription>{item.description}</CardDescription>
                             </CardHeader>
@@ -173,10 +173,10 @@ export default function HireDevelopersPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-primary/5">
+      <section className="py-20 bg-primary">
         <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">Why Hire Developers from Us?</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline">Why Hire Developers from Us?</h2>
             </div>
              <div className="grid gap-8 md:grid-cols-3">
                 {whyHireUs.map(reason => (
@@ -185,7 +185,7 @@ export default function HireDevelopersPage() {
                             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent">
                                 <reason.icon className="h-6 w-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-primary">{reason.title}</h3>
+                            <h3 className="text-xl font-bold text-primary-foreground">{reason.title}</h3>
                         </div>
                         <p className="text-muted-foreground">{reason.description}</p>
                     </Card>
@@ -197,12 +197,12 @@ export default function HireDevelopersPage() {
       <section className="py-20">
         <div className="container mx-auto px-4 max-w-4xl">
             <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">Frequently Asked Questions</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline">Frequently Asked Questions</h2>
             </div>
             <Accordion type="single" collapsible className="w-full space-y-4">
                 {faqs.map(faq => (
-                    <AccordionItem key={faq.question} value={faq.question} className="bg-primary/5 border rounded-lg px-6">
-                        <AccordionTrigger className="text-lg font-semibold text-primary text-left hover:no-underline">{faq.question}</AccordionTrigger>
+                    <AccordionItem key={faq.question} value={faq.question} className="bg-card border rounded-lg px-6">
+                        <AccordionTrigger className="text-lg font-semibold text-primary-foreground text-left hover:no-underline">{faq.question}</AccordionTrigger>
                         <AccordionContent className="text-base text-muted-foreground pt-2">
                             {faq.answer}
                         </AccordionContent>

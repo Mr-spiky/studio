@@ -27,14 +27,14 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#bacad6]/80 shadow-md backdrop-blur-lg">
+    <header className="sticky top-0 z-50 w-full bg-background/80 shadow-md backdrop-blur-lg">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
         <Link
           href="/"
           className="flex items-center gap-2 group"
           prefetch={false}
         >
-          <Logo className="h-8 text-primary" />
+          <Logo className="h-8" />
         </Link>
         <nav className="hidden md:flex md:items-center md:gap-6">
           {navLinks.map((link) => (

@@ -21,11 +21,11 @@ const ClientCarousel: FC = () => {
   return (
     <section
       id="clients"
-      className="relative py-16 md:py-20 overflow-hidden bg-primary/5"
+      className="relative py-16 md:py-20 overflow-hidden bg-primary"
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline animate-subtle-float">
+            <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline animate-subtle-float">
               Awards & Recognition
             </h2>
           </div>
@@ -42,7 +42,7 @@ const ClientCarousel: FC = () => {
               {awardLogos.map((logo, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 transition-all duration-300 filter hover:scale-110"
+                  className="flex-shrink-0 transition-all duration-300 filter grayscale brightness-200 contrast-100 hover:grayscale-0 hover:brightness-100 hover:contrast-100"
                 >
                   <Image
                     src={logo.src}

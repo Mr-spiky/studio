@@ -97,10 +97,10 @@ export default function Home() {
               Pioneering the future of technology with cutting-edge web solutions, cloud infrastructure, and AI integration.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button size="lg" asChild className="bg-[#e0f0f5] text-primary hover:bg-[#e0f0f5]/90">
+              <Button size="lg" asChild>
                 <Link href="/services">Get Started</Link>
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
+              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary-foreground">
                 <Link href="/solutions">View Portfolio</Link>
               </Button>
             </div>
@@ -109,7 +109,7 @@ export default function Home() {
 
         <Section id="services" className="bg-background">
           <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">Our Core Services</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline">Our Core Services</h2>
             <p className="mt-4 text-lg leading-8 text-foreground/80">
               Comprehensive digital solutions tailored to drive your business growth.
             </p>
@@ -140,10 +140,10 @@ export default function Home() {
 
         <AIPoweredInsights selectedServices={selectedServices} />
 
-        <Section id="why-choose-us" className="bg-primary/5">
+        <Section id="why-choose-us" className="">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">Why Choose GIT Technologies?</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline">Why Choose GIT Technologies?</h2>
               <p className="mt-4 text-lg text-foreground/80">
                 Proven expertise delivering exceptional results for businesses worldwide.
               </p>
@@ -153,7 +153,7 @@ export default function Home() {
                         <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
                             <feature.icon className="h-6 w-6" />
                         </div>
-                        <p className="font-semibold text-primary">{feature.title}</p>
+                        <p className="font-semibold text-primary-foreground">{feature.title}</p>
                     </div>
                 ))}
               </div>
@@ -175,9 +175,9 @@ export default function Home() {
         
         <ClientCarousel />
 
-        <Section id="blog" className="bg-primary/5">
+        <Section id="blog" className="">
           <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">Latest Insights</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline">Latest Insights</h2>
             <p className="mt-4 text-lg leading-8 text-foreground/80">
               Stay updated with industry trends and expert perspectives.
             </p>

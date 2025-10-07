@@ -29,7 +29,7 @@ export default function Footer() {
               <ul className="mt-4 space-y-2">
                 {quickLinks.map((link) => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-primary-foreground/80 hover:text-primary-foreground">
+                    <Link href={link.href} className="text-primary-foreground/80 hover:text-accent">
                       {link.name}
                     </Link>
                   </li>

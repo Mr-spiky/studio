@@ -40,9 +40,9 @@ const processSteps = [
 
 export default function ProcessTimeline() {
   return (
-    <Section id="process" className="bg-primary/5">
+    <Section id="process" className="">
       <div className="text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">
+        <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline">
           Our Process
         </h2>
         <p className="mt-4 text-lg leading-8 text-foreground/80">
@@ -62,7 +62,7 @@ export default function ProcessTimeline() {
               )}
               
               <div className="relative z-10 mb-[-2rem]">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-background shadow-lg border-4 border-primary/5">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-background shadow-lg border-4 border-card">
                       <step.icon className="h-8 w-8 text-accent" />
                   </div>
                   <div 
@@ -74,7 +74,7 @@ export default function ProcessTimeline() {
 
               <Card className="w-full bg-card shadow-sm border pt-16 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-accent/40 flex flex-col border-t-4 border-t-accent">
                 <CardContent className="flex-grow">
-                  <h3 className="text-xl font-bold text-primary mb-2">{step.title}</h3>
+                  <h3 className="text-xl font-bold text-primary-foreground mb-2">{step.title}</h3>
                   <p className="text-sm text-muted-foreground">{step.description}</p>
                 </CardContent>
               </Card>
