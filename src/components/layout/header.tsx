@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -25,37 +25,70 @@ const navLinks = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Run on mount to set initial state
+    handleScroll(); 
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-primary text-primary-foreground shadow-md">
+    <header
+      className={cn(
+        'sticky top-0 z-50 w-full transition-all duration-300',
+        scrolled
+          ? 'bg-primary text-primary-foreground shadow-md'
+          : 'bg-transparent text-white'
+      )}
+    >
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
         <Link
           href="/"
           className="flex items-center gap-2 group"
           prefetch={false}
         >
-          <Logo className="h-8" />
+          <Logo scrolled={scrolled} className="h-8" />
         </Link>
         <nav className="hidden md:flex md:items-center md:gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-primary-foreground/80 transition-colors hover:text-primary-foreground"
+              className={cn(
+                'text-sm font-medium transition-colors',
+                scrolled
+                  ? 'text-primary-foreground/80 hover:text-primary-foreground'
+                  : 'text-white/80 hover:text-white'
+              )}
             >
               {link.name}
             </Link>
           ))}
         </nav>
         <div className="hidden md:block">
-          <Button variant="secondary" asChild>
+          <Button
+            variant={scrolled ? 'secondary' : 'outline'}
+            className={cn(!scrolled && 'text-white border-white hover:bg-white hover:text-primary')}
+            asChild
+          >
             <Link href="/contact">Contact Us</Link>
           </Button>
         </div>
         <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="hover:bg-primary/10 text-primary-foreground">
+              <Button
+                variant="ghost"
+                size="icon"
+                className={cn('hover:bg-black/10', scrolled ? 'text-primary-foreground' : 'text-white')}
+              >
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
