@@ -2,10 +2,9 @@
 import { cn } from '@/lib/utils';
 
 interface LogoProps extends React.SVGProps<SVGSVGElement> {
-  scrolled?: boolean;
 }
 
-const Logo = ({ className, scrolled, ...props }: LogoProps) => (
+const Logo = ({ className, ...props }: LogoProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 280 50"
@@ -21,7 +20,7 @@ const Logo = ({ className, scrolled, ...props }: LogoProps) => (
     <g className="fill-current">
       <text x="0" y="35" fontFamily="Inter, Arial, sans-serif" fontSize="28" fontWeight="bold">
         <tspan fill="url(#logo-gradient)">&lt;/&gt;</tspan>
-        <tspan fill={scrolled ? 'hsl(var(--foreground))' : 'hsl(var(--primary-foreground))'}>G1technology</tspan>
+        <tspan fill={'hsl(var(--primary-foreground))'}>G1technology</tspan>
       </text>
     </g>
   </svg>

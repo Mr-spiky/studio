@@ -32,7 +32,13 @@ export default function Header() {
       setScrolled(window.scrollY > 10);
     };
 
+    // Add event listener on mount
     window.addEventListener('scroll', handleScroll);
+
+    // Initial check
+    handleScroll();
+
+    // Cleanup listener on unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -43,7 +49,7 @@ export default function Header() {
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
         scrolled
-          ? 'bg-background/80 shadow-md backdrop-blur-lg'
+          ? 'bg-primary/80 shadow-md backdrop-blur-lg'
           : 'bg-transparent'
       )}
     >
@@ -53,7 +59,7 @@ export default function Header() {
           className="flex items-center gap-2 group"
           prefetch={false}
         >
-          <Logo scrolled={scrolled} className="h-8" />
+          <Logo className="h-8" />
         </Link>
         <nav className="hidden md:flex md:items-center md:gap-6">
           {navLinks.map((link) => (
@@ -61,8 +67,7 @@ export default function Header() {
               key={link.name}
               href={link.href}
               className={cn(
-                'text-sm font-medium transition-colors',
-                scrolled ? 'text-foreground/80 hover:text-foreground' : 'text-primary-foreground/80 hover:text-primary-foreground'
+                'text-sm font-medium transition-colors text-primary-foreground/80 hover:text-primary-foreground'
               )}
             >
               {link.name}
@@ -71,7 +76,8 @@ export default function Header() {
         </nav>
         <div className="hidden md:block">
           <Button
-            variant={scrolled ? 'default' : 'secondary'}
+            variant={scrolled ? 'secondary' : 'outline'}
+            className={cn(!scrolled && 'border-white text-white hover:bg-white hover:text-primary')}
             asChild
           >
             <Link href="/contact">Contact Us</Link>
@@ -83,10 +89,7 @@ export default function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className={cn(
-                    'hover:bg-black/10',
-                    scrolled ? 'text-foreground' : 'text-primary-foreground'
-                )}
+                className={cn('text-primary-foreground hover:bg-black/10')}
               >
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation menu</span>
@@ -95,7 +98,7 @@ export default function Header() {
             <SheetContent side="right">
               <SheetHeader>
                  <Link href="/" className="flex items-center gap-2 group" onClick={() => setIsOpen(false)}>
-                    <Logo scrolled={true} className="h-8" />
+                    <Logo className="h-8" />
                  </Link>
                  <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
               </SheetHeader>
