@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useTransition } from 'react';
@@ -27,11 +28,11 @@ export default function AIPoweredInsights({ selectedServices }: { selectedServic
       <div className="container mx-auto px-4 md:px-6">
         <Card className="max-w-3xl mx-auto text-center shadow-lg border-2 border-primary/10 bg-card">
           <CardHeader>
-            <CardTitle className="font-headline text-2xl sm:text-3xl text-primary-foreground flex items-center justify-center gap-2">
+            <CardTitle className="font-headline text-2xl sm:text-3xl text-card-foreground flex items-center justify-center gap-2">
               <Wand2 className="h-7 w-7 text-accent" />
               AI-Powered Insights
             </CardTitle>
-            <CardDescription className="text-lg text-foreground/80">
+            <CardDescription className="text-lg text-muted-foreground">
               Select services you're interested in, and our AI will provide customized suggestions.
             </CardDescription>
           </CardHeader>

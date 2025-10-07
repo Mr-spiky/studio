@@ -121,13 +121,13 @@ const faqs = [
 
 export default function ServicesPage() {
   return (
-    <div className="bg-background">
+    <div className="bg-background text-foreground">
       <section className="py-20 text-center bg-primary">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl font-headline bg-gradient-to-r from-accent to-secondary text-transparent bg-clip-text">
+          <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl font-headline">
             Our Digital Solutions
           </h1>
-          <p className="mt-6 max-w-3xl mx-auto text-lg leading-8 text-foreground/80">
+          <p className="mt-6 max-w-3xl mx-auto text-lg leading-8 text-primary-foreground/80">
             We offer a comprehensive suite of services to build, scale, and elevate your digital presence from concept to launch.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
@@ -144,7 +144,7 @@ export default function ServicesPage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline">What We Offer</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">What We Offer</h2>
                 <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
                     Our expertise spans across a wide range of digital services.
                 </p>
@@ -156,8 +156,8 @@ export default function ServicesPage() {
                             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent">
                                 <service.icon className="h-8 w-8" />
                             </div>
-                            <CardTitle className="font-headline text-xl text-primary-foreground">{service.title}</CardTitle>
-                            <CardDescription>{service.description}</CardDescription>
+                            <CardTitle className="font-headline text-xl text-card-foreground">{service.title}</CardTitle>
+                            <CardDescription className="text-muted-foreground">{service.description}</CardDescription>
                         </CardHeader>
                         <CardContent className="flex-grow w-full">
                             <AccordionItem value={service.title} className="border-b-0">
@@ -165,11 +165,11 @@ export default function ServicesPage() {
                                     <span className="group-hover:text-accent/80">Learn More <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">&rarr;</span></span>
                                 </AccordionTrigger>
                                 <AccordionContent className="pt-4 text-left">
-                                    <h4 className="font-semibold mb-2 text-primary-foreground">Key Features:</h4>
+                                    <h4 className="font-semibold mb-2 text-card-foreground">Key Features:</h4>
                                     <ul className="list-disc list-inside text-muted-foreground space-y-1 mb-4">
                                         {service.details.features.map(f => <li key={f}>{f}</li>)}
                                     </ul>
-                                    <h4 className="font-semibold mb-2 text-primary-foreground">Technologies:</h4>
+                                    <h4 className="font-semibold mb-2 text-card-foreground">Technologies:</h4>
                                     <div className="flex flex-wrap gap-2">
                                         {service.details.tech.map(t => <div key={t} className="bg-primary/50 text-foreground text-xs font-semibold px-2 py-1 rounded-full">{t}</div>)}
                                     </div>
@@ -186,7 +186,7 @@ export default function ServicesPage() {
          <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline">Transparent Pricing</h2>
-              <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
+              <p className="mt-4 max-w-2xl mx-auto text-lg text-primary-foreground/80">
                 Choose a plan that fits your business needs and budget.
               </p>
             </div>
@@ -194,10 +194,10 @@ export default function ServicesPage() {
                 {pricingTiers.map(tier => (
                     <Card key={tier.name} className={`flex flex-col p-8 ${tier.popular ? 'border-2 border-accent shadow-accent/20 shadow-lg' : ''}`}>
                          {tier.popular && <div className="text-center"><div className="inline-block bg-accent text-accent-foreground text-sm font-semibold px-4 py-1 rounded-full mb-4">Most Popular</div></div>}
-                        <CardTitle className="font-headline text-2xl mb-4 text-center text-primary-foreground">{tier.name}</CardTitle>
-                        <p className="text-4xl font-bold mb-4 text-center text-primary-foreground">{tier.price}<span className="text-lg font-normal text-muted-foreground">{tier.name !== 'Enterprise' && '/mo'}</span></p>
+                        <CardTitle className="font-headline text-2xl mb-4 text-center text-card-foreground">{tier.name}</CardTitle>
+                        <p className="text-4xl font-bold mb-4 text-center text-card-foreground">{tier.price}<span className="text-lg font-normal text-muted-foreground">{tier.name !== 'Enterprise' && '/mo'}</span></p>
                         <p className="text-muted-foreground mb-6 text-center">{tier.description}</p>
-                        <ul className="space-y-3 mb-8 flex-grow">
+                        <ul className="space-y-3 mb-8 flex-grow text-card-foreground">
                             {tier.features.map(feature => (
                                 <li key={feature} className="flex items-center gap-2">
                                     <ShieldCheck className="h-5 w-5 text-green-500" />
@@ -215,12 +215,12 @@ export default function ServicesPage() {
       <section className="py-20">
         <div className="container mx-auto px-4 max-w-4xl">
             <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline">Frequently Asked Questions</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Frequently Asked Questions</h2>
             </div>
             <Accordion type="single" collapsible className="w-full space-y-4">
                 {faqs.map(faq => (
                     <AccordionItem key={faq.question} value={faq.question} className="bg-card border rounded-lg px-6">
-                        <AccordionTrigger className="text-lg font-semibold text-primary-foreground text-left hover:no-underline">{faq.question}</AccordionTrigger>
+                        <AccordionTrigger className="text-lg font-semibold text-card-foreground text-left hover:no-underline">{faq.question}</AccordionTrigger>
                         <AccordionContent className="text-base text-muted-foreground pt-2">
                             {faq.answer}
                         </AccordionContent>

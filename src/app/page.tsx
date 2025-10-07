@@ -100,7 +100,7 @@ export default function Home() {
               <Button size="lg" asChild>
                 <Link href="/services">Get Started</Link>
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-900">
+              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
                 <Link href="/solutions">View Portfolio</Link>
               </Button>
             </div>
@@ -109,7 +109,7 @@ export default function Home() {
 
         <Section id="services" className="bg-background">
           <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline">Our Core Services</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Our Core Services</h2>
             <p className="mt-4 text-lg leading-8 text-foreground/80">
               Comprehensive digital solutions tailored to drive your business growth.
             </p>
@@ -128,7 +128,7 @@ export default function Home() {
                   <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent transition-transform duration-300 group-hover:scale-110">
                     <service.icon className="h-8 w-8" />
                   </div>
-                  <CardTitle className="font-headline text-xl">{service.title}</CardTitle>
+                  <CardTitle className="font-headline text-xl text-card-foreground">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
                   <p className="text-muted-foreground">{service.description}</p>
@@ -143,7 +143,7 @@ export default function Home() {
         <Section id="why-choose-us" className="">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline">Why Choose GIT Technologies?</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Why Choose GIT Technologies?</h2>
               <p className="mt-4 text-lg text-foreground/80">
                 Proven expertise delivering exceptional results for businesses worldwide.
               </p>
@@ -155,7 +155,7 @@ export default function Home() {
                                <feature.icon className="h-6 w-6" />
                            </div>
                            <div>
-                                <CardTitle className="text-lg text-primary-foreground">{feature.title}</CardTitle>
+                                <CardTitle className="text-lg text-foreground">{feature.title}</CardTitle>
                                 <CardContent className="p-0 mt-1">
                                     <p className="text-sm text-muted-foreground">{feature.description}</p>
                                 </CardContent>
@@ -184,7 +184,7 @@ export default function Home() {
 
         <Section id="blog" className="">
           <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline">Latest Insights</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Latest Insights</h2>
             <p className="mt-4 text-lg leading-8 text-foreground/80">
               Stay updated with industry trends and expert perspectives.
             </p>
@@ -193,7 +193,7 @@ export default function Home() {
             {blogPosts.map((post) => (
               <Card key={post.title} className="flex flex-col overflow-hidden transition-shadow hover:shadow-lg">
                 <CardHeader>
-                  <CardTitle className="font-headline text-xl">{post.title}</CardTitle>
+                  <CardTitle className="font-headline text-xl text-card-foreground">{post.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow">
                   <p className="text-muted-foreground">{post.description}</p>
