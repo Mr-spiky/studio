@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -25,32 +25,12 @@ const navLinks = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
-    // Add event listener on mount
-    window.addEventListener('scroll', handleScroll);
-
-    // Initial check
-    handleScroll();
-
-    // Cleanup listener on unmount
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
     <header
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
-        scrolled
-          ? 'bg-primary/80 shadow-md backdrop-blur-lg'
-          : 'bg-transparent'
+        'bg-primary shadow-md'
       )}
     >
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
@@ -76,8 +56,7 @@ export default function Header() {
         </nav>
         <div className="hidden md:block">
           <Button
-            variant={scrolled ? 'secondary' : 'outline'}
-            className={cn(!scrolled && 'border-white text-white hover:bg-white hover:text-primary')}
+            variant={'secondary'}
             asChild
           >
             <Link href="/contact">Contact Us</Link>

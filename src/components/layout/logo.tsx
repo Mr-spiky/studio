@@ -2,9 +2,10 @@
 import { cn } from '@/lib/utils';
 
 interface LogoProps extends React.SVGProps<SVGSVGElement> {
+  scrolled?: boolean;
 }
 
-const Logo = ({ className, ...props }: LogoProps) => (
+const Logo = ({ className, scrolled, ...props }: LogoProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 280 50"
