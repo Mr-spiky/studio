@@ -25,10 +25,27 @@ const navLinks = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <header
-      className='sticky top-0 z-50 w-full bg-primary text-primary-foreground shadow-md'
+      className={cn(
+        'sticky top-0 z-50 w-full transition-all duration-300',
+        scrolled
+          ? 'bg-background/80 shadow-md backdrop-blur-lg'
+          : 'bg-transparent'
+      )}
     >
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
         <Link
@@ -36,14 +53,17 @@ export default function Header() {
           className="flex items-center gap-2 group"
           prefetch={false}
         >
-          <Logo scrolled={true} className="h-8" />
+          <Logo scrolled={scrolled} className="h-8" />
         </Link>
         <nav className="hidden md:flex md:items-center md:gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className='text-sm font-medium text-primary-foreground/80 transition-colors hover:text-primary-foreground'
+              className={cn(
+                'text-sm font-medium transition-colors',
+                scrolled ? 'text-foreground/80 hover:text-foreground' : 'text-primary-foreground/80 hover:text-primary-foreground'
+              )}
             >
               {link.name}
             </Link>
@@ -51,7 +71,7 @@ export default function Header() {
         </nav>
         <div className="hidden md:block">
           <Button
-            variant='secondary'
+            variant={scrolled ? 'default' : 'secondary'}
             asChild
           >
             <Link href="/contact">Contact Us</Link>
@@ -63,7 +83,10 @@ export default function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className='hover:bg-black/10 text-primary-foreground'
+                className={cn(
+                    'hover:bg-black/10',
+                    scrolled ? 'text-foreground' : 'text-primary-foreground'
+                )}
               >
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation menu</span>
@@ -72,7 +95,7 @@ export default function Header() {
             <SheetContent side="right">
               <SheetHeader>
                  <Link href="/" className="flex items-center gap-2 group" onClick={() => setIsOpen(false)}>
-                    <Logo className="h-8" />
+                    <Logo scrolled={true} className="h-8" />
                  </Link>
                  <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
               </SheetHeader>
