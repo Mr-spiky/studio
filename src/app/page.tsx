@@ -45,10 +45,10 @@ const features: {
   title: string;
   description: string;
 }[] = [
-    { icon: Scaling, title: 'Scalable Architecture', description: '' },
-    { icon: Smartphone, title: 'Mobile-First Design', description: '' },
-    { icon: Rocket, title: 'High Performance', description: '' },
-    { icon: Search, title: 'SEO Optimized', description: '' },
+    { icon: Scaling, title: 'Scalable Architecture', description: 'Built to grow with your business, ensuring long-term performance.' },
+    { icon: Smartphone, title: 'Mobile-First Design', description: 'Flawless experiences on any device, from desktops to smartphones.' },
+    { icon: Rocket, title: 'High Performance', description: 'Optimized for speed and reliability, delivering a seamless user experience.' },
+    { icon: Search, title: 'SEO Optimized', description: 'Engineered to rank higher on search engines and attract more traffic.' },
 ];
 
 const stats = [
@@ -149,12 +149,19 @@ export default function Home() {
               </p>
               <div className="mt-10 grid grid-cols-2 gap-8">
                 {features.map((feature) => (
-                    <div key={feature.title} className="flex items-center gap-4">
-                        <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                            <feature.icon className="h-6 w-6" />
-                        </div>
-                        <p className="font-semibold text-primary-foreground">{feature.title}</p>
-                    </div>
+                    <Card key={feature.title} className="bg-transparent border-0 shadow-none">
+                        <CardHeader className="flex flex-row items-start p-0">
+                           <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent mr-4">
+                               <feature.icon className="h-6 w-6" />
+                           </div>
+                           <div>
+                                <CardTitle className="text-lg text-primary-foreground">{feature.title}</CardTitle>
+                                <CardContent className="p-0 mt-1">
+                                    <p className="text-sm text-muted-foreground">{feature.description}</p>
+                                </CardContent>
+                           </div>
+                        </CardHeader>
+                    </Card>
                 ))}
               </div>
             </div>
@@ -203,5 +210,3 @@ export default function Home() {
     </>
   );
 }
-
-    
