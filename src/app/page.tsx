@@ -100,7 +100,7 @@ export default function Home() {
               <Button size="lg" asChild>
                 <Link href="/services">Get Started</Link>
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary-foreground">
+              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-900">
                 <Link href="/solutions">View Portfolio</Link>
               </Button>
             </div>

@@ -27,7 +27,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/80 shadow-md backdrop-blur-lg">
+    <header className="sticky top-0 z-50 w-full bg-primary text-primary-foreground shadow-md">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
         <Link
           href="/"
@@ -41,31 +41,31 @@ export default function Header() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+              className="text-sm font-medium text-primary-foreground/80 transition-colors hover:text-primary-foreground"
             >
               {link.name}
             </Link>
           ))}
         </nav>
         <div className="hidden md:block">
-          <Button asChild>
+          <Button variant="secondary" asChild>
             <Link href="/contact">Contact Us</Link>
           </Button>
         </div>
         <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="hover:bg-primary/10 text-primary">
+              <Button variant="ghost" size="icon" className="hover:bg-primary/10 text-primary-foreground">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
               <SheetHeader>
-                <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
                  <Link href="/" className="flex items-center gap-2 group" onClick={() => setIsOpen(false)}>
                     <Logo className="h-8 text-primary" />
-                  </Link>
+                 </Link>
+                 <SheetTitle className='sr-only'>Mobile Menu</SheetTitle>
               </SheetHeader>
               <div className="flex flex-col h-full">
                 <nav className="mt-6 flex flex-col gap-4">
