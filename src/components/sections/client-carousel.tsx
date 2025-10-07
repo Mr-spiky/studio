@@ -1,3 +1,4 @@
+
 // src/components/sections/client-carousel.tsx
 'use client';
 
@@ -42,7 +43,7 @@ const ClientCarousel: FC = () => {
               {awardLogos.map((logo, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 transition-all duration-300 filter grayscale brightness-200 contrast-100 hover:grayscale-0 hover:brightness-100 hover:contrast-100"
+                  className="flex-shrink-0"
                 >
                   <Image
                     src={logo.src}
