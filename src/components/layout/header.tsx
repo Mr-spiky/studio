@@ -44,7 +44,7 @@ export default function Header() {
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
         scrolled
-          ? 'bg-primary text-primary-foreground shadow-md'
+          ? 'bg-primary shadow-md'
           : 'bg-transparent text-white'
       )}
     >
@@ -96,9 +96,9 @@ export default function Header() {
             <SheetContent side="right">
               <SheetHeader>
                  <Link href="/" className="flex items-center gap-2 group" onClick={() => setIsOpen(false)}>
-                    <Logo className="h-8 text-primary" />
+                    <Logo className="h-8" />
                  </Link>
-                 <SheetTitle className='sr-only'>Mobile Menu</SheetTitle>
+                 <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
               </SheetHeader>
               <div className="flex flex-col h-full">
                 <nav className="mt-6 flex flex-col gap-4">
