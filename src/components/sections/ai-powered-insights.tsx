@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useTransition } from 'react';
@@ -23,15 +24,15 @@ export default function AIPoweredInsights({ selectedServices }: { selectedServic
   };
 
   return (
-    <section id="ai-insights" className="py-12 md:py-20 bg-card">
+    <section id="ai-insights" className="py-12 md:py-20 bg-primary">
       <div className="container mx-auto px-4 md:px-6">
-        <Card className="max-w-3xl mx-auto text-center shadow-lg border-2 border-primary/10 bg-primary/5">
+        <Card className="max-w-3xl mx-auto text-center shadow-lg border-2 border-primary/10 bg-card">
           <CardHeader>
-            <CardTitle className="font-headline text-2xl sm:text-3xl text-primary flex items-center justify-center gap-2">
-              <Wand2 className="h-7 w-7" />
+            <CardTitle className="font-headline text-2xl sm:text-3xl text-card-foreground flex items-center justify-center gap-2">
+              <Wand2 className="h-7 w-7 text-accent" />
               AI-Powered Insights
             </CardTitle>
-            <CardDescription className="text-lg">
+            <CardDescription className="text-lg text-muted-foreground">
               Select services you're interested in, and our AI will provide customized suggestions.
             </CardDescription>
           </CardHeader>
@@ -46,7 +47,7 @@ export default function AIPoweredInsights({ selectedServices }: { selectedServic
             </Button>
             {recommendation && (
               <div className="mt-6 p-4 bg-background border rounded-lg text-left text-sm transition-all animate-in fade-in-50">
-                <h4 className="font-semibold text-primary mb-2">Your Personalized Recommendation:</h4>
+                <h4 className="font-semibold text-accent mb-2">Your Personalized Recommendation:</h4>
                 <p className="text-foreground/90 leading-relaxed">{recommendation}</p>
               </div>
             )}

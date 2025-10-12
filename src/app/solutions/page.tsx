@@ -61,13 +61,13 @@ const processSteps = [
 
 export default function SolutionsPage() {
   return (
-    <div className="bg-background">
-      <section className="py-20 text-center bg-primary/5">
+    <div className="bg-background text-foreground">
+      <section className="py-20 text-center bg-primary">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl md:text-6xl font-headline">
+          <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl font-headline">
             Tailored Technology Solutions for Your Industry
           </h1>
-          <p className="mt-6 max-w-3xl mx-auto text-lg leading-8 text-foreground/80">
+          <p className="mt-6 max-w-3xl mx-auto text-lg leading-8 text-primary-foreground/80">
             End-to-end digital transformation powered by cutting-edge technologies. We deliver solutions that solve problems and drive growth.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
@@ -84,19 +84,19 @@ export default function SolutionsPage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">Industry-Specific Solutions</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Industry-Specific Solutions</h2>
                 <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
                     We have deep expertise in delivering solutions for a wide range of industries.
                 </p>
             </div>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {industrySolutions.map((solution) => (
-                <Card key={solution.title} className="text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <Card key={solution.title} className="text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-accent">
                   <CardHeader className="items-center">
                     <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent">
                       <solution.icon className="h-8 w-8" />
                     </div>
-                    <CardTitle className="font-headline text-xl">{solution.title}</CardTitle>
+                    <CardTitle className="font-headline text-xl text-card-foreground">{solution.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">{solution.description}</p>
@@ -107,29 +107,29 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-       <section className="py-20 bg-primary/5">
+       <section className="py-20 bg-primary">
          <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">Our Technology Solutions</h2>
-              <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
+              <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline">Our Technology Solutions</h2>
+              <p className="mt-4 max-w-2xl mx-auto text-lg text-primary-foreground/80">
                 From custom software to digital transformation, we have you covered.
               </p>
             </div>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                 <Card>
-                    <CardHeader><CardTitle className="flex items-center gap-2"><BrainCircuit size={24} className="text-accent"/>Custom Software</CardTitle></CardHeader>
+                    <CardHeader><CardTitle className="flex items-center gap-2 text-card-foreground"><BrainCircuit size={24} className="text-accent"/>Custom Software</CardTitle></CardHeader>
                     <CardContent><p className="text-muted-foreground">Bespoke software solutions built to meet your unique business needs.</p></CardContent>
                 </Card>
                 <Card>
-                    <CardHeader><CardTitle className="flex items-center gap-2"><Handshake size={24} className="text-accent"/>Integration Services</CardTitle></CardHeader>
+                    <CardHeader><CardTitle className="flex items-center gap-2 text-card-foreground"><Handshake size={24} className="text-accent"/>Integration Services</CardTitle></CardHeader>
                     <CardContent><p className="text-muted-foreground">Seamlessly connect your systems and data with custom API development.</p></CardContent>
                 </Card>
                 <Card>
-                    <CardHeader><CardTitle className="flex items-center gap-2"><BotMessageSquare size={24} className="text-accent"/>Consulting & Strategy</CardTitle></CardHeader>
+                    <CardHeader><CardTitle className="flex items-center gap-2 text-card-foreground"><BotMessageSquare size={24} className="text-accent"/>Consulting & Strategy</CardTitle></CardHeader>
                     <CardContent><p className="text-muted-foreground">Expert guidance to create a technology roadmap for success.</p></CardContent>
                 </Card>
                  <Card>
-                    <CardHeader><CardTitle className="flex items-center gap-2"><ShieldCheck size={24} className="text-accent"/>Digital Transformation</CardTitle></CardHeader>
+                    <CardHeader><CardTitle className="flex items-center gap-2 text-card-foreground"><ShieldCheck size={24} className="text-accent"/>Digital Transformation</CardTitle></CardHeader>
                     <CardContent><p className="text-muted-foreground">Modernize legacy systems and optimize processes for the digital age.</p></CardContent>
                 </Card>
             </div>
@@ -139,7 +139,7 @@ export default function SolutionsPage() {
       <section id="case-studies" className="py-20">
         <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">Success Stories</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Success Stories</h2>
                 <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
                     See how we've helped businesses like yours succeed with our solutions.
                 </p>
@@ -149,7 +149,7 @@ export default function SolutionsPage() {
                     <Card key={study.client} className="overflow-hidden flex flex-col group">
                         <Image src={study.image} alt={study.title} width={600} height={400} className="w-full h-52 object-cover transition-transform duration-300 group-hover:scale-105" />
                         <div className="p-6 flex flex-col flex-grow">
-                            <h3 className="text-xl font-bold text-primary mb-2">{study.title}</h3>
+                            <h3 className="text-xl font-bold text-card-foreground mb-2">{study.title}</h3>
                             <p className="text-sm text-accent font-semibold mb-4">{study.client}</p>
                             <p className="text-muted-foreground flex-grow">{study.description}</p>
                         </div>
@@ -159,10 +159,10 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-primary/5">
+      <section className="py-20 bg-primary">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">How We Deliver Solutions</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl font-headline">How We Deliver Solutions</h2>
           </div>
           <div className="relative">
             <div className="absolute left-1/2 top-0 hidden h-full w-px bg-border md:block" />
@@ -172,8 +172,8 @@ export default function SolutionsPage() {
                 <div className="hidden md:flex absolute top-1/2 left-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent ring-8 ring-background" />
                 <Card className="w-full md:w-1/2 group-even:ml-auto">
                     <CardHeader>
-                        <CardTitle>{index + 1}. {step.title}</CardTitle>
-                        <CardDescription>{step.description}</CardDescription>
+                        <CardTitle className="text-card-foreground">{index + 1}. {step.title}</CardTitle>
+                        <CardDescription className="text-muted-foreground">{step.description}</CardDescription>
                     </CardHeader>
                 </Card>
               </div>
@@ -185,12 +185,12 @@ export default function SolutionsPage() {
       <section className="py-20">
         <div className="container mx-auto px-4 max-w-4xl">
             <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">Frequently Asked Questions</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Frequently Asked Questions</h2>
             </div>
             <Accordion type="single" collapsible className="w-full space-y-4">
                 {faqs.map(faq => (
-                    <AccordionItem key={faq.question} value={faq.question} className="bg-primary/5 border rounded-lg px-6">
-                        <AccordionTrigger className="text-lg font-semibold text-primary text-left hover:no-underline">{faq.question}</AccordionTrigger>
+                    <AccordionItem key={faq.question} value={faq.question} className="bg-card border rounded-lg px-6">
+                        <AccordionTrigger className="text-lg font-semibold text-card-foreground text-left hover:no-underline">{faq.question}</AccordionTrigger>
                         <AccordionContent className="text-base text-muted-foreground pt-2">
                             {faq.answer}
                         </AccordionContent>

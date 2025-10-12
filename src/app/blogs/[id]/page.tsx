@@ -24,9 +24,9 @@ export default async function BlogPostPage({ params }: { params: { id: string } 
 
   return (
     <article className="container mx-auto px-4 py-12 md:px-6 max-w-4xl">
-      <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl font-headline mb-4">{post.title}</h1>
+      <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl font-headline mb-4">{post.title}</h1>
       <Image src={post.image} alt={post.title} width={1200} height={600} className="rounded-lg shadow-md mb-8" />
-      <div className="prose lg:prose-xl max-w-none" dangerouslySetInnerHTML={{ __html: post.content }} />
+      <div className="prose lg:prose-xl max-w-none prose-invert" dangerouslySetInnerHTML={{ __html: post.content }} />
     </article>
   );
 }

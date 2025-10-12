@@ -45,10 +45,10 @@ const features: {
   title: string;
   description: string;
 }[] = [
-    { icon: Scaling, title: 'Scalable Architecture', description: '' },
-    { icon: Smartphone, title: 'Mobile-First Design', description: '' },
-    { icon: Rocket, title: 'High Performance', description: '' },
-    { icon: Search, title: 'SEO Optimized', description: '' },
+    { icon: Scaling, title: 'Scalable Architecture', description: 'Built to grow with your business, ensuring long-term performance.' },
+    { icon: Smartphone, title: 'Mobile-First Design', description: 'Flawless experiences on any device, from desktops to smartphones.' },
+    { icon: Rocket, title: 'High Performance', description: 'Optimized for speed and reliability, delivering a seamless user experience.' },
+    { icon: Search, title: 'SEO Optimized', description: 'Engineered to rank higher on search engines and attract more traffic.' },
 ];
 
 const stats = [
@@ -91,13 +91,13 @@ export default function Home() {
           <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[-1]"></div>
           <div className="container mx-auto px-4 md:px-6 text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-headline text-shadow-lg">
-              GIT Technologies
+              G1 Technologies
             </h1>
             <p className="mt-6 max-w-2xl mx-auto text-lg leading-8 text-white/90 text-shadow">
               Pioneering the future of technology with cutting-edge web solutions, cloud infrastructure, and AI integration.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button size="lg" asChild className="bg-[#e0f0f5] text-primary hover:bg-[#e0f0f5]/90">
+              <Button size="lg" asChild>
                 <Link href="/services">Get Started</Link>
               </Button>
               <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
@@ -109,7 +109,7 @@ export default function Home() {
 
         <Section id="services" className="bg-background">
           <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">Our Core Services</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Our Core Services</h2>
             <p className="mt-4 text-lg leading-8 text-foreground/80">
               Comprehensive digital solutions tailored to drive your business growth.
             </p>
@@ -124,11 +124,11 @@ export default function Home() {
                   selectedServices.includes(service.title) && 'ring-2 ring-accent'
                 )}
               >
-                <CardHeader className="items-center">
+                <CardHeader className="items-center text-center">
                   <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent transition-transform duration-300 group-hover:scale-110">
                     <service.icon className="h-8 w-8" />
                   </div>
-                  <CardTitle className="font-headline text-xl">{service.title}</CardTitle>
+                  <CardTitle className="font-headline text-xl text-card-foreground">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
                   <p className="text-muted-foreground">{service.description}</p>
@@ -140,21 +140,28 @@ export default function Home() {
 
         <AIPoweredInsights selectedServices={selectedServices} />
 
-        <Section id="why-choose-us" className="bg-primary/5">
+        <Section id="why-choose-us" className="">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">Why Choose GIT Technologies?</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Why Choose G1 Technologies?</h2>
               <p className="mt-4 text-lg text-foreground/80">
                 Proven expertise delivering exceptional results for businesses worldwide.
               </p>
               <div className="mt-10 grid grid-cols-2 gap-8">
                 {features.map((feature) => (
-                    <div key={feature.title} className="flex items-center gap-4">
-                        <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                            <feature.icon className="h-6 w-6" />
-                        </div>
-                        <p className="font-semibold text-primary">{feature.title}</p>
-                    </div>
+                    <Card key={feature.title} className="bg-transparent border-0 shadow-none">
+                        <CardHeader className="flex flex-row items-start p-0">
+                           <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent mr-4">
+                               <feature.icon className="h-6 w-6" />
+                           </div>
+                           <div>
+                                <CardTitle className="text-lg text-foreground">{feature.title}</CardTitle>
+                                <CardContent className="p-0 mt-1">
+                                    <p className="text-sm text-muted-foreground">{feature.description}</p>
+                                </CardContent>
+                           </div>
+                        </CardHeader>
+                    </Card>
                 ))}
               </div>
             </div>
@@ -175,9 +182,9 @@ export default function Home() {
         
         <ClientCarousel />
 
-        <Section id="blog" className="bg-primary/5">
+        <Section id="blog" className="">
           <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl font-headline">Latest Insights</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Latest Insights</h2>
             <p className="mt-4 text-lg leading-8 text-foreground/80">
               Stay updated with industry trends and expert perspectives.
             </p>
@@ -186,7 +193,7 @@ export default function Home() {
             {blogPosts.map((post) => (
               <Card key={post.title} className="flex flex-col overflow-hidden transition-shadow hover:shadow-lg">
                 <CardHeader>
-                  <CardTitle className="font-headline text-xl">{post.title}</CardTitle>
+                  <CardTitle className="font-headline text-xl text-card-foreground">{post.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow">
                   <p className="text-muted-foreground">{post.description}</p>
@@ -203,5 +210,3 @@ export default function Home() {
     </>
   );
 }
-
-    
