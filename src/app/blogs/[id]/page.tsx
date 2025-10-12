@@ -1,6 +1,10 @@
 
 import Image from 'next/image';
 
+interface PageProps {
+  params: Promise<{ id: string }>
+}
+
 // This is a placeholder for fetching blog post data
 const getPostData = async (id: string) => {
   const posts = [
@@ -11,8 +15,9 @@ const getPostData = async (id: string) => {
   return posts.find(p => p.id === id);
 };
 
-export default async function BlogPostPage({ params }: { params: { id: string } }) {
-  const post = await getPostData(params.id);
+export default async function BlogPostPage({ params }: PageProps) {
+  const { id } = await params;
+  const post = await getPostData(id);
 
   if (!post) {
     return (
