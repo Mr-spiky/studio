@@ -15,7 +15,7 @@ const Logo = ({ className, scrolled, ...props }: LogoProps) => (
     </div>
     <div>
       <h1 className="text-primary font-bold text-xl leading-none tracking-tight">
-        G1 <span className="text-secondary font-semibold">Technologies</span>
+        <span style={{ WebkitTextStroke: '1px white' } as React.CSSProperties}>G1</span> <span className="text-secondary font-semibold">Technologies</span>
       </h1>
       <p className="text-xs text-muted-foreground font-medium tracking-wider uppercase">
         Digital Innovation
