@@ -25,22 +25,10 @@ const navLinks = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <header
-      className={cn(
-        'sticky top-0 z-50 w-full transition-all duration-300',
-        scrolled ? 'bg-primary shadow-md' : 'bg-transparent'
-      )}
+      className={'sticky top-0 z-50 w-full bg-primary text-primary-foreground shadow-md'}
     >
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
         <Link
@@ -48,17 +36,14 @@ export default function Header() {
           className="flex items-center gap-2 group"
           prefetch={false}
         >
-          <Logo className="h-8" scrolled={scrolled} />
+          <Logo className="h-8" scrolled={true} />
         </Link>
         <nav className="hidden md:flex md:items-center md:gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className={cn(
-                'text-sm font-medium transition-colors',
-                scrolled ? 'text-primary-foreground/80 hover:text-primary-foreground' : 'text-white/80 hover:text-white'
-              )}
+              className={'text-sm font-medium text-primary-foreground/80 transition-colors hover:text-primary-foreground'}
             >
               {link.name}
             </Link>
@@ -66,8 +51,7 @@ export default function Header() {
         </nav>
         <div className="hidden md:block">
           <Button
-            variant={scrolled ? 'secondary' : 'outline'}
-            className={cn(!scrolled && 'text-white border-white hover:bg-white hover:text-primary')}
+            variant={'secondary'}
             asChild
           >
             <Link href="/contact">Contact Us</Link>
@@ -79,7 +63,7 @@ export default function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className={cn(scrolled ? 'text-primary-foreground' : 'text-white', 'hover:bg-black/10')}
+                className={'text-primary-foreground hover:bg-black/10'}
               >
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation menu</span>

@@ -21,7 +21,7 @@ const Logo = ({ className, scrolled, ...props }: LogoProps) => (
     <g className="fill-current">
       <text x="0" y="35" fontFamily="Inter, Arial, sans-serif" fontSize="28" fontWeight="bold">
         <tspan fill="url(#logo-gradient)">&lt;/&gt;</tspan>
-        <tspan fill={scrolled ? 'hsl(var(--primary-foreground))' : '#FFFFFF'}>G1 Technologies</tspan>
+        <tspan fill={'hsl(var(--primary-foreground))'}>G1 Technologies</tspan>
       </text>
     </g>
   </svg>
